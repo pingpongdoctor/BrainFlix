@@ -1,0 +1,53 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+//Dp we need to use @use
+
+.header {
+  margin: 0 1rem 1.5rem 1rem;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 30% 50%;
+  @include desktop {
+    width: 7rem;
+  }
+}
+
+.header__wrap {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.header__input {
+  width: 100%;
+  outline: none;
+  background-image: url("../../assets/Images/Icons/search.svg");
+  background-size: 1rem;
+  background-position: 1rem;
+  background-repeat: no-repeat;
+  padding: 0.5rem 3rem;
+  border: 1px solid $Mercury;
+  border-radius: 4px;
+  font-family: "Avenir Next";
+  &::placeholder {
+    color: $BrainFlix-Black;
+  }
+}
+
+.logo {
+  margin-bottom: 1rem;
+}

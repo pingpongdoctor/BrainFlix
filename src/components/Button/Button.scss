@@ -1,0 +1,18 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+//The btn does not get the fon-family
+.btn {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: $White;
+  background-color: $BrainFlix-Blue;
+  background-image: url("../../assets/Images/Icons/upload.svg");
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  background-position: 1rem;
+}

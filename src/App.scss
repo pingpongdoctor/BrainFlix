@@ -1,0 +1,38 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/mixins" as *;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Avenir Next";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+button {
+  font-family: "Avenir Next";
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}

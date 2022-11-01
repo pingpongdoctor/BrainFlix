@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/BrainFlix-Package-Sprint-1
+/README.md
