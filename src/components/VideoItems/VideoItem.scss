@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.next-video__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 22rem;
+}
+
+.next-video__title {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.next-video__img {
+  width: 8rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.next-video__wrap {
+  width: 100%;
+  max-width: 160px;
+}

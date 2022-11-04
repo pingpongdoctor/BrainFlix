@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.conversation__comment-list {
+  list-style: none;
+  padding: 1rem 0 0 0;
+  margin: 0;
+}

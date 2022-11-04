@@ -1,0 +1,23 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.conversation__form {
+  flex-grow: 1;
+}
+
+.conversation__heading {
+  text-transform: uppercase;
+  color: $Silver;
+  margin: 0;
+}
+
+.conversation__input {
+  outline: none;
+  resize: none;
+  border-radius: 4px;
+  border: 1px solid $Mercury;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-family: "Avenir Next";
+}

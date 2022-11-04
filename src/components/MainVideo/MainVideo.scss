@@ -1,0 +1,95 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.main {
+  margin-bottom: 1rem;
+}
+
+.main__video {
+  width: 100%;
+  padding-bottom: 1rem;
+  object-fit: cover;
+  height: 60vh;
+}
+
+.main__heading {
+  padding: 0 1rem 1rem 1rem;
+  border-bottom: 1px solid $Mercury;
+  margin: 0;
+}
+
+.main__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid $Mercury;
+  color: $Silver;
+  p {
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+
+.main__channel {
+  font-weight: 600;
+  color: $BrainFlix-DarkBlack;
+}
+
+.main__views {
+  background-image: url("../../assets/Images/Icons/views.svg");
+  background-repeat: no-repeat;
+  padding-left: 2rem;
+}
+
+.main__likes {
+  background-image: url("../../assets/Images/Icons/likes.svg");
+  background-repeat: no-repeat;
+  padding-left: 2rem;
+}
+
+.main__text {
+  padding: 0 1rem;
+}
+
+// .main__play-big-wrap {
+//   position: relative;
+// }
+
+// .main__play-container {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   gap: 1rem;
+//   padding: 0 1rem;
+//   position: absolute;
+//   bottom: 2rem;
+//   width: 100%;
+// }
+
+// .main__play-btn {
+//   width: 1.8rem;
+//   height: 1rem;
+//   background-color: $BrainFlix-DarkBlack;
+//   opacity: 0.7;
+//   border-radius: 4px;
+// }
+
+// .main__play-wrap {
+//   background-color: $BrainFlix-DarkBlack;
+//   opacity: 0.7;
+//   border-radius: 4px;
+//   display: flex;
+//   align-items: center;
+//   width: 50px;
+// }
+
+// .main__play-duration {
+//   color: $White;
+//   background-color: rgba($color: $BrainFlix-DarkBlack, $alpha: 0.7);
+//   flex-grow: 1;
+//   text-align: right;
+//   padding-right: 1rem;
+//   border-radius: 4px;
+// }

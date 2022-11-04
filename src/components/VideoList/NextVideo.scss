@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.next-video {
+  padding: 0 1rem;
+  border-top: 1px solid $Mercury;
+}
+
+.next-video__list {
+  list-style: none;
+  padding: 0;
+}
+
+.next-video__heading {
+  color: $Silver;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
