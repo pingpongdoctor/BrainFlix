@@ -11,15 +11,17 @@ const Form = function (props) {
     } else {
       alert("missing information");
       event.target.input.classList.add("conversation__input--error");
+      console.log(event.target.input);
     }
   };
   //Function to focus and blur the input box
-  const focusFunc = function (event) {
-    event.target.classList.add("conversation__input--focus");
-  };
-  const blurFunc = function (event) {
-    event.target.classList.remove("conversation__input--focus");
-  };
+  // const focusFunc = function (event) {
+  //   event.target.classList.add("conversation__input--focus");
+  //   console.log(event);
+  // };
+  // const blurFunc = function (event) {
+  //   event.target.classList.remove("conversation__input--focus");
+  // };
   return (
     <form onSubmit={submitFunc} className="conversation__form">
       <div className="conversation__label-input">
@@ -27,8 +29,8 @@ const Form = function (props) {
           join the conversation
         </label>
         <textarea
-          onFocus={focusFunc}
-          onBlur={blurFunc}
+          // onFocus={focusFunc}
+          // onBlur={blurFunc}
           placeholder="Add a new comment"
           className="conversation__input"
           name="input"
@@ -36,7 +38,7 @@ const Form = function (props) {
           id="input"
         ></textarea>
       </div>
-      <Button btnContent="comment" className="btn btn-comment" />
+      <Button btnContent="comment" className="btn btn--comment" />
     </form>
   );
 };

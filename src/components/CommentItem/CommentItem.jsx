@@ -6,7 +6,7 @@ const CommentItem = function ({ name, time, comment }) {
   return (
     <li className="conversation__comment-item">
       <Avatar className="avatar" src={mohan} />
-      <div>
+      <div className="conversation__comment-infor">
         <div className="conversation__comment-wrap">
           <p className="conversation__comment-name">{name}</p>
           <p className="conversation__comment-time">{timeConvDetail(time)}</p>

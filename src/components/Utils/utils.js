@@ -1,9 +1,3 @@
-// export const timeConv = function (timestamp) {
-//   const timeInfo = new Date(timestamp);
-//   const timeDisplay = timeInfo.toLocaleDateString("en-GB");
-//   return timeDisplay;
-// };
-
 export const timeConvDetail = function (timestamp) {
   const timeInfo = new Date(timestamp);
   const timeInfoCurrent = new Date();

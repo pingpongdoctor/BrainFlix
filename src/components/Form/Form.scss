@@ -2,49 +2,54 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/mixins" as *;
 
-.conversation__form {
-  flex-grow: 1;
-  @include tablet {
-    display: flex;
-    gap: 1.5rem;
-    width: 100%;
-  }
-}
-
-.conversation__label-input {
-  @include tablet {
+.conversation {
+  &__form {
     flex-grow: 1;
+    @include tablet {
+      display: flex;
+      gap: 1.5rem;
+      width: 100%;
+    }
   }
-}
 
-.conversation__label {
-  text-transform: uppercase;
-  font-weight: 600;
-  color: $Silver;
-  margin: 0;
-}
-
-.conversation__input {
-  height: 120px;
-  outline: none;
-  resize: none;
-  border-radius: 4px;
-  border: 1px solid $Mercury;
-  margin-bottom: 1rem;
-  padding: 10px;
-  width: 100%;
-  font-family: "Avenir Next";
-  overflow: hidden;
-  @include tablet {
-    height: 40px;
-    margin-bottom: 0;
+  &__label-input {
+    @include tablet {
+      flex-grow: 1;
+    }
   }
-}
 
-.conversation__input--focus {
-  border: 2px solid $BrainFlix-Blue;
-}
+  &__label {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $Silver;
+    margin: 0;
+  }
 
-.conversation__input--error {
-  border: 2px solid #d22d2d;
+  &__input {
+    height: 120px;
+    outline: none;
+    resize: none;
+    border-radius: 4px;
+    border: 1px solid $Mercury;
+    margin-bottom: 1rem;
+    padding: 10px;
+    width: 100%;
+    font-family: "Avenir Next";
+    overflow: hidden;
+    &:focus {
+      border: 2px solid $BrainFlix-Blue;
+    }
+    @include tablet {
+      height: 40px;
+      margin-bottom: 0;
+    }
+  }
+
+  // &__input--focus {
+  //   border: 2px solid $BrainFlix-Blue;
+  // }
+
+  &__input--error {
+    border: 2px solid #d22d2d;
+  }
 }

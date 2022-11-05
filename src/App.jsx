@@ -5,9 +5,9 @@ import MainVideoInfor from "./components/MainVideoInfor/MainVideoInfor";
 import NextVideo from "./components/NextVideo/NextVideo";
 import Conversation from "./components/Conversation/Conversation";
 import MainVideo from "./components/MainVideo/MainVideo";
-
-// import { v4 as uuid } from "uuid";
+import { v4 as uuid } from "uuid";
 import { useState } from "react";
+
 function App() {
   //USESTATE
   const [activeVideo, setActiveVideo] = useState(videoArr[0]);
@@ -19,8 +19,10 @@ function App() {
   //FUNCTION TO SUBMIT
   const submitHandler = function (comment) {
     const newCommentObj = {
+      id: uuid(),
       name: "Anonymous",
       comment: comment,
+      timestamp: new Date(),
     };
     const newCommentArr = [newCommentObj, ...activeVideo.comments];
     const newObj = { ...activeVideo, comments: newCommentArr };
@@ -30,19 +32,21 @@ function App() {
     <div className="App">
       <Header />
       <MainVideo poster={activeVideo.image} />
-      <div className="App-flex">
-        <div className="App-flex__box">
-          <MainVideoInfor activeVideo={activeVideo} />
-          <Conversation
-            commentArr={activeVideo.comments}
-            submitHandler={submitHandler}
+      <div className="App__container">
+        <div className="App__flex">
+          <div className="App__flex-box">
+            <MainVideoInfor activeVideo={activeVideo} />
+            <Conversation
+              commentArr={activeVideo.comments}
+              submitHandler={submitHandler}
+            />
+          </div>
+          <NextVideo
+            id={activeVideo.id}
+            videoArr={videoArr}
+            videoHandler={videoHandler}
           />
         </div>
-        <NextVideo
-          id={activeVideo.id}
-          videoArr={videoArr}
-          videoHandler={videoHandler}
-        />
       </div>
     </div>
   );

@@ -67,12 +67,24 @@ button {
 }
 
 //Display flex for the video list and the main video's infor
-.App-flex {
+.App__flex {
   @include desktop {
     display: flex;
+    margin: 0 auto;
+    padding-left: 8.8rem;
+    padding-right: 8.8rem;
   }
 }
 
-.App-flex__box {
-  border-right: 1px solid $Mercury;
+.App__container {
+  @include desktop {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.App__flex-box {
+  @include desktop {
+    border-right: 1px solid $Mercury;
+  }
 }

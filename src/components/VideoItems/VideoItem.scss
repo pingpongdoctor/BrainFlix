@@ -2,27 +2,43 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/mixins" as *;
 
-.next-video__item {
-  display: flex;
-  gap: 1rem;
-  width: 27rem;
-  padding-bottom: 1rem;
-}
+.next-video {
+  &__item {
+    display: flex;
+    gap: 1rem;
+    width: 20.5rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    @include tablet {
+      padding-bottom: 1.5rem;
+      gap: 1.5rem;
+    }
+  }
 
-.next-video__title {
-  font-weight: bold;
-  margin-top: 0;
-}
+  &__title {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
 
-.next-video__img {
-  width: 9rem;
-  height: 5rem;
-  object-fit: cover;
-  border-radius: 4px;
-  background-color: $Mercury;
-}
+  &__channel {
+    margin: 0;
+  }
 
-.next-video__wrap {
-  width: 100%;
-  max-width: 160px;
+  &__img {
+    width: 7rem;
+    height: 4.3rem;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: $Mercury;
+    @include tablet {
+      width: 8rem;
+      height: 5.1rem;
+    }
+  }
+
+  &__wrap {
+    width: 100%;
+    max-width: 175px;
+  }
 }

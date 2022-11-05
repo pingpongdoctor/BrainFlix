@@ -2,34 +2,41 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-.conversation__comment-item {
-  display: flex;
-  gap: 1rem;
-  border-bottom: 1px solid $Mercury;
-  padding: 1rem 0;
-  @include tablet {
-    padding: 1.5rem 0;
+.conversation {
+  &__comment-item {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid $Mercury;
+    padding: 1rem 0;
+    @include tablet {
+      padding: 1.5rem 0;
+    }
+    @include desktop {
+      padding: 1.5rem;
+    }
   }
-  @include desktop {
-    padding: 1.5rem;
+
+  &__comment-infor {
+    width: 100%;
   }
-}
 
-.conversation__comment-name {
-  font-weight: bold;
-  margin: 0;
-}
+  &__comment-name {
+    font-weight: bold;
+    margin: 0;
+  }
 
-.conversation__comment-text {
-  margin-bottom: 0;
-}
+  &__comment-text {
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
 
-.conversation__comment-wrap {
-  display: flex;
-  justify-content: space-between;
-}
+  &__comment-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.conversation__comment-time {
-  margin: 0;
-  color: $Silver;
+  &__comment-time {
+    margin: 0;
+    color: $Silver;
+  }
 }

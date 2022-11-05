@@ -11,7 +11,7 @@ const Conversation = function (props) {
           {props.commentArr.length} Comments
         </p>
         <div className="conversation__wrap">
-          <Avatar className="avatar avatar-form" src={mohan} />
+          <Avatar className="avatar avatar--form" src={mohan} />
           <Form submitHandler={props.submitHandler} />
         </div>
         <CommentList commentArr={props.commentArr} />

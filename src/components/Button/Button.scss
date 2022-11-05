@@ -7,15 +7,13 @@
   width: 100%;
   border: none;
   border-radius: 4px;
-  padding: 0.5rem;
-  font-size: 1rem;
   text-transform: uppercase;
   color: $White;
   background-color: $BrainFlix-Blue;
   background-image: url("../../assets/Images/Icons/upload.svg");
   background-repeat: no-repeat;
-  background-size: 1.5rem;
-  background-position: 1rem;
+  background-size: 1.2rem;
+  background-position: 0.7rem;
   height: 40px;
   &:hover {
     background-color: $BrainFlix-DarkBlue;
@@ -23,19 +21,19 @@
   @include tablet {
     padding: 0 32px;
   }
-}
 
-.btn-header {
-  @include tablet {
-    width: 200px;
+  &--header {
+    @include tablet {
+      width: 150px;
+    }
   }
-}
 
-.btn-comment {
-  background-image: url("../../assets/Images/Icons/add_comment.svg");
-  @include tablet {
-    align-self: flex-end;
-    margin-bottom: 0.3rem;
-    width: 200px;
+  &--comment {
+    background-image: url("../../assets/Images/Icons/add_comment.svg");
+    @include tablet {
+      align-self: flex-end;
+      margin-bottom: 0.3rem;
+      width: 150px;
+    }
   }
 }

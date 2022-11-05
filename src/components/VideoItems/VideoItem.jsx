@@ -11,7 +11,7 @@ const VideoItem = function ({ id, url, title, channel, videoHandler }) {
       <img className="next-video__img" src={url} alt="next video" />
       <div className="next-video__wrap">
         <p className="next-video__title">{title}</p>
-        <p>{channel}</p>
+        <p className="next-video__channel">{channel}</p>
       </div>
     </li>
   );

@@ -9,26 +9,31 @@
   }
   @include desktop {
     padding-right: 0;
+    padding-left: 0;
   }
-}
-.conversation__wrap {
-  display: flex;
-  gap: 1rem;
-  border-bottom: 1px solid $Mercury;
-  padding-bottom: 1rem;
-  @include tablet {
-    gap: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  @include desktop {
-    padding: 1.5rem;
-  }
-}
 
-.conversation__comment-num {
-  font-weight: bold;
-  margin-top: 0;
-  @include desktop {
-    margin-bottom: 0;
+  // &__container {
+  //   max-width: 711px;
+  // }
+  &__wrap {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid $Mercury;
+    padding-bottom: 1rem;
+    @include tablet {
+      gap: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    @include desktop {
+      padding: 1.5rem;
+    }
+  }
+
+  &__comment-num {
+    font-weight: bold;
+    margin-top: 0;
+    @include desktop {
+      margin-bottom: 0;
+    }
   }
 }
