@@ -1,0 +1,137 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.main-infor {
+  padding: 0 1rem 1rem 1rem;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+  @include desktop {
+    padding-right: 0;
+  }
+}
+
+.main-infor__heading {
+  border-bottom: 1px solid $Mercury;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+  @include tablet {
+    padding-bottom: 0;
+    border: none;
+  }
+}
+
+.main-infor__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  border-bottom: 1px solid $Mercury;
+  color: $Silver;
+  p {
+    width: 50%;
+    margin-bottom: 0;
+  }
+  @include tablet {
+    padding: 1.5rem 0;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    p {
+      width: auto;
+      margin-top: 0;
+    }
+  }
+}
+
+.main-infor__channel {
+  font-weight: 600;
+  color: $BrainFlix-DarkBlack;
+  margin-top: 0;
+  @include desktop {
+    order: -1;
+  }
+}
+
+.main-infor__views {
+  background-image: url("../../assets/Images/Icons/views.svg");
+  background-repeat: no-repeat;
+  background-position: 0% 60%;
+  margin-top: 0;
+  padding-left: 2rem;
+  @include tablet {
+    margin-right: auto;
+  }
+  @include desktop {
+    order: 1;
+    margin-right: 0;
+  }
+}
+
+.main-infor__likes {
+  background-image: url("../../assets/Images/Icons/likes.svg");
+  background-repeat: no-repeat;
+  background-position: 0% 60%;
+  padding-left: 2rem;
+  @include desktop {
+    order: 2;
+  }
+}
+
+.main-infor__text {
+  margin-bottom: 0;
+  @include tablet {
+    padding: 1.5rem 0;
+    margin-top: 0;
+  }
+  @include desktop {
+    padding-right: 1.5rem;
+  }
+}
+
+.main-infor__time {
+  @include desktop {
+    order: 0;
+    margin-right: auto;
+  }
+}
+
+// .main__play-big-wrap {
+//   position: relative;
+// }
+
+// .main__play-container {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   gap: 1rem;
+//   padding: 0 1rem;
+//   position: absolute;
+//   bottom: 2rem;
+//   width: 100%;
+// }
+
+// .main__play-btn {
+//   width: 1.8rem;
+//   height: 1rem;
+//   background-color: $BrainFlix-DarkBlack;
+//   opacity: 0.7;
+//   border-radius: 4px;
+// }
+
+// .main__play-wrap {
+//   background-color: $BrainFlix-DarkBlack;
+//   opacity: 0.7;
+//   border-radius: 4px;
+//   display: flex;
+//   align-items: center;
+//   width: 50px;
+// }
+
+// .main__play-duration {
+//   color: $White;
+//   background-color: rgba($color: $BrainFlix-DarkBlack, $alpha: 0.7);
+//   flex-grow: 1;
+//   text-align: right;
+//   padding-right: 1rem;
+//   border-radius: 4px;
+// }

@@ -3,13 +3,32 @@
 @use "../../styles/partials/mixins" as *;
 
 .conversation {
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+  @include desktop {
+    padding-right: 0;
+  }
 }
 .conversation__wrap {
   display: flex;
   gap: 1rem;
+  border-bottom: 1px solid $Mercury;
+  padding-bottom: 1rem;
+  @include tablet {
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  @include desktop {
+    padding: 1.5rem;
+  }
 }
 
 .conversation__comment-num {
   font-weight: bold;
+  margin-top: 0;
+  @include desktop {
+    margin-bottom: 0;
+  }
 }

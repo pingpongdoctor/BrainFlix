@@ -5,13 +5,19 @@
 //Dp we need to use @use
 
 .header {
-  margin: 1rem;
+  padding: 1rem;
+  @include tablet {
+    padding: 1.5rem 2.25rem;
+  }
 }
 
 .header__container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include tablet {
+    flex-direction: row;
+  }
 }
 
 .header__wrap {
@@ -19,6 +25,11 @@
   width: 100%;
   margin-bottom: 1rem;
   gap: 1rem;
+  @include tablet {
+    margin-bottom: 0;
+    width: 270px;
+    margin-right: 1.5rem;
+  }
 }
 
 .header__input {
@@ -31,6 +42,7 @@
   padding: 0.5rem 3rem;
   border: 1px solid $Mercury;
   border-radius: 4px;
+  height: 40px;
   &::placeholder {
     color: $BrainFlix-Black;
   }
@@ -38,4 +50,8 @@
 
 .logo {
   margin-bottom: 1rem;
+  @include tablet {
+    margin-bottom: 0;
+    margin-right: auto;
+  }
 }

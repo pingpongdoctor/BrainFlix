@@ -5,8 +5,14 @@
 .conversation__comment-item {
   display: flex;
   gap: 1rem;
-  border-top: 1px solid $Mercury;
+  border-bottom: 1px solid $Mercury;
   padding: 1rem 0;
+  @include tablet {
+    padding: 1.5rem 0;
+  }
+  @include desktop {
+    padding: 1.5rem;
+  }
 }
 
 .conversation__comment-name {

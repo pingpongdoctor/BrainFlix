@@ -1,7 +1,7 @@
 import "./CommentItem.scss";
 import Avatar from "../Avatar/Avatar";
 import mohan from "../../assets/Images/Mohan-muruge.jpg";
-import { timeConv } from "../Utils/utils";
+import { timeConvDetail } from "../Utils/utils";
 const CommentItem = function ({ name, time, comment }) {
   return (
     <li className="conversation__comment-item">
@@ -9,7 +9,7 @@ const CommentItem = function ({ name, time, comment }) {
       <div>
         <div className="conversation__comment-wrap">
           <p className="conversation__comment-name">{name}</p>
-          <p className="conversation__comment-time">{timeConv(time)}</p>
+          <p className="conversation__comment-time">{timeConvDetail(time)}</p>
         </div>
         <p className="conversation__comment-text">{comment}</p>
       </div>

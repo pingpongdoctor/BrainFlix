@@ -4,9 +4,9 @@
 
 .next-video__item {
   display: flex;
-  align-items: center;
   gap: 1rem;
-  width: 22rem;
+  width: 27rem;
+  padding-bottom: 1rem;
 }
 
 .next-video__title {
@@ -15,11 +15,11 @@
 }
 
 .next-video__img {
-  width: 8rem;
+  width: 9rem;
   height: 5rem;
-  margin-bottom: 1rem;
   object-fit: cover;
   border-radius: 4px;
+  background-color: $Mercury;
 }
 
 .next-video__wrap {

@@ -13,3 +13,17 @@
 .avatar-form {
   margin-top: 1.2rem;
 }
+
+.avatar--mobile {
+  @include tablet {
+    display: none;
+  }
+}
+
+.avatar--tablet {
+  display: none;
+  @include tablet {
+    display: inline-block;
+    margin-left: 1.5rem;
+  }
+}

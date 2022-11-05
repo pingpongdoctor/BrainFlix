@@ -1,6 +1,8 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/fonts" as *;
 @use "./styles/partials/mixins" as *;
+
+//General setting
 * {
   box-sizing: border-box;
 }
@@ -11,24 +13,50 @@ body {
   font-size: 13px;
   line-height: 18px;
   margin: 0;
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 
 h1 {
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  @include tablet {
+    font-size: 33px;
+    line-height: 44px;
+    margin-top: 36px;
+    margin-bottom: 24px;
+  }
 }
 
 h2 {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  @include tablet {
+    margin-top: 36px;
+    margin-bottom: 24px;
+  }
 }
 
 h3 {
   font-size: 13px;
   line-height: 18px;
   font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  @include tablet {
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 36px;
+    margin-bottom: 24px;
+  }
 }
 
 button {
@@ -36,4 +64,15 @@ button {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
+}
+
+//Display flex for the video list and the main video's infor
+.App-flex {
+  @include desktop {
+    display: flex;
+  }
+}
+
+.App-flex__box {
+  border-right: 1px solid $Mercury;
 }

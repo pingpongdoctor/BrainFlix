@@ -4,17 +4,19 @@
 
 .next-video {
   padding: 0 1rem;
-  border-top: 1px solid $Mercury;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
 }
 
 .next-video__list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .next-video__heading {
   color: $Silver;
   font-weight: 500;
   text-transform: uppercase;
-  margin: 1rem 0;
 }

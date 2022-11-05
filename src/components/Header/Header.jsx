@@ -16,9 +16,10 @@ const Header = (props) => {
             type="text"
             name="input"
           ></input>
-          <Avatar className="avatar" src={mohan} />
+          <Avatar className="avatar avatar--mobile" src={mohan} />
         </div>
-        <Button btnContent="upload" className="btn" />
+        <Button btnContent="upload" className="btn btn-header" />
+        <Avatar className="avatar avatar--tablet" src={mohan} />
       </div>
     </header>
   );
