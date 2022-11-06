@@ -1,0 +1,11 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.logo {
+  margin-bottom: 1rem;
+  @include tablet {
+    margin-bottom: 0;
+    margin-right: auto;
+  }
+}

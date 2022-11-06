@@ -1,0 +1,87 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/mixins" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Avenir Next";
+  font-weight: 400;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  margin: 0;
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  @include tablet {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+h2 {
+  @extend button;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  @include tablet {
+    margin-top: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+h3 {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+button {
+  font-family: "Avenir Next";
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+//MAKE THE VIDEO LIST THE BE SIDE BY SIDE WITH THE CONVERSATION AND MAIN VIDEO INFOR SECTION IN THE DESKTOP BREAKPOINT
+.App__flex {
+  @include desktop {
+    display: flex;
+    margin: 0 auto;
+    padding-left: 8.8rem;
+    padding-right: 8.8rem;
+  }
+}
+
+.App__container {
+  @include desktop {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.App__flex-box {
+  @include desktop {
+    border-right: 1px solid $Mercury;
+  }
+}

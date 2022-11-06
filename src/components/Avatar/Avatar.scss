@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 30% 50%;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+
+  &--form {
+    margin-top: 1.2rem;
+  }
+
+  &--mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &--tablet {
+    display: none;
+    @include tablet {
+      display: inline-block;
+      margin-left: 1.5rem;
+    }
+  }
+}

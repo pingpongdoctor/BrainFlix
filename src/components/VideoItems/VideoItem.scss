@@ -1,0 +1,44 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+
+.video-list {
+  &__item {
+    display: flex;
+    gap: 1rem;
+    width: 20.5rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    @include tablet {
+      padding-bottom: 1.5rem;
+      gap: 1.5rem;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__channel {
+    margin: 0;
+  }
+
+  &__img {
+    width: 7rem;
+    height: 4.3rem;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: $Mercury;
+    @include tablet {
+      width: 8rem;
+      height: 5.1rem;
+    }
+  }
+
+  &__wrap {
+    width: 100%;
+    max-width: 175px;
+  }
+}
