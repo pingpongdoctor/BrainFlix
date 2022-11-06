@@ -1,7 +1,7 @@
 import "./VideoList.scss";
 import VideoItem from "../VideoItems/VideoItem";
 
-const VideoList = function ({ videoArr, id, videoHandler }) {
+const VideoList = function ({ videoArr, id, handlerVideo }) {
   return (
     <section className="video-list">
       <div className="video-list__container">
@@ -16,7 +16,7 @@ const VideoList = function ({ videoArr, id, videoHandler }) {
                 url={video.image}
                 title={video.title}
                 channel={video.channel}
-                videoHandler={videoHandler}
+                handlerVideo={handlerVideo}
               />
             ))}
         </ul>

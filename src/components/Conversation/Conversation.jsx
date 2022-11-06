@@ -1,20 +1,20 @@
 import Form from "../Form/Form";
 import Avatar from "../Avatar/Avatar";
-import mohan from "../../assets/Images/Mohan-muruge.jpg";
+import mohanPic from "../../assets/Images/Mohan-muruge.jpg";
 import "./Conversation.scss";
 import CommentList from "../CommentList/CommentList";
-const Conversation = function (props) {
+const Conversation = function ({ commentArr, handlerSubmit }) {
   return (
     <section className="conversation">
       <div className=" conversation__container">
         <p className="conversation__comment-num">
-          {props.commentArr.length} Comments
+          {commentArr.length} Comments
         </p>
         <div className="conversation__wrap">
-          <Avatar className="avatar avatar--form" src={mohan} />
-          <Form submitHandler={props.submitHandler} />
+          <Avatar className="avatar avatar--form" src={mohanPic} />
+          <Form handlerSubmit={handlerSubmit} />
         </div>
-        <CommentList commentArr={props.commentArr} />
+        <CommentList commentArr={commentArr} />
       </div>
     </section>
   );

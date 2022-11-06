@@ -1,11 +1,11 @@
 import "./VideoItem.scss";
 
-const VideoItem = function ({ id, url, title, channel, videoHandler }) {
+const VideoItem = function ({ id, url, title, channel, handlerVideo }) {
   return (
     <li
       className="video-list__item"
       onClick={(event) => {
-        videoHandler(id);
+        handlerVideo(id);
       }}
     >
       <img className="video-list__img" src={url} alt="next video" />

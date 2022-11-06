@@ -12,12 +12,12 @@ function App() {
   //USESTATE
   const [activeVideo, setActiveVideo] = useState(videoArr[0]);
   //FUNCTION TO UPDATE THE CLICKED VIDEO
-  const videoHandler = function (id) {
+  const handlerVideo = function (id) {
     const newVideo = videoArr.find((video) => video.id === id);
     setActiveVideo(newVideo);
   };
   //FUNCTION TO SUBMIT
-  const submitHandler = function (comment) {
+  const handlerSubmit = function (comment) {
     const newCommentObj = {
       id: uuid(),
       name: "Anonymous",
@@ -38,13 +38,13 @@ function App() {
             <MainVideoInfor activeVideo={activeVideo} />
             <Conversation
               commentArr={activeVideo.comments}
-              submitHandler={submitHandler}
+              handlerSubmit={handlerSubmit}
             />
           </div>
           <VideoList
             id={activeVideo.id}
             videoArr={videoArr}
-            videoHandler={videoHandler}
+            handlerVideo={handlerVideo}
           />
         </div>
       </div>
