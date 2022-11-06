@@ -9,9 +9,11 @@
     border-bottom: 1px solid $Mercury;
     padding: 1rem 0;
     @include tablet {
+      gap: 1.5rem;
       padding: 1.5rem 0;
     }
     @include desktop {
+      gap: 2.25rem;
       padding: 1.5rem;
       border-top: 1px solid $Mercury;
       border-bottom: none;

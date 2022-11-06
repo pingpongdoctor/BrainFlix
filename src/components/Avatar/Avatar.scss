@@ -14,7 +14,9 @@
   }
 
   &--form {
-    margin-top: 1.2rem;
+    @include tablet {
+      margin-top: 1.4rem;
+    }
   }
 
   &--mobile {
@@ -29,5 +31,15 @@
       display: inline-block;
       margin-left: 1.5rem;
     }
+    @include desktop {
+      display: inline-block;
+      margin-left: 2.25rem;
+      margin-right: 1.2rem;
+    }
+  }
+
+  @include tablet {
+    width: 40px;
+    height: 40px;
   }
 }
