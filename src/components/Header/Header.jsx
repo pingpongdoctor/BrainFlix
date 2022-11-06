@@ -16,10 +16,14 @@ const Header = () => {
             type="text"
             name="input"
           ></input>
-          <Avatar className="avatar avatar--mobile" src={mohanPic} />
+          <Avatar
+            className="avatar avatar--mobile"
+            src={mohanPic}
+            alt="avatar"
+          />
         </div>
         <Button btnContent="upload" className="btn btn--header" />
-        <Avatar className="avatar avatar--tablet" src={mohanPic} />
+        <Avatar className="avatar avatar--tablet" src={mohanPic} alt="avatar" />
       </div>
     </header>
   );

@@ -1,5 +1,7 @@
 import "./Logo.scss";
-const Logo = (props) => {
-  return <img className={props.className} src={props.src} alt={props.alt} />;
+
+const Logo = ({ className, src, alt }) => {
+  return <img className={className} src={src} alt={alt} />;
 };
+
 export default Logo;

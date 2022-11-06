@@ -64,24 +64,26 @@ button {
 }
 
 //MAKE THE VIDEO LIST THE BE SIDE BY SIDE WITH THE CONVERSATION AND MAIN VIDEO INFOR SECTION IN THE DESKTOP BREAKPOINT
-.App__flex {
-  @include desktop {
-    display: flex;
-    margin: 0 auto;
-    padding-left: 8.8rem;
-    padding-right: 8.8rem;
+.App {
+  &__container {
+    @include desktop {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
   }
-}
 
-.App__container {
-  @include desktop {
-    max-width: 1280px;
-    margin: 0 auto;
+  &__flex {
+    @include desktop {
+      display: flex;
+      margin: 0 auto;
+      padding-left: 8.8rem;
+      padding-right: 8.8rem;
+    }
   }
-}
 
-.App__flex-box {
-  @include desktop {
-    border-right: 1px solid $Mercury;
+  &__flex-box {
+    @include desktop {
+      border-right: 1px solid $Mercury;
+    }
   }
 }

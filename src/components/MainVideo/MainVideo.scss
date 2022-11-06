@@ -3,36 +3,35 @@
 @use "../../styles/partials/fonts" as *;
 
 .main-video {
+  background-color: $BrainFlix-DarkBlack;
   &__container {
     height: 60vh;
     @include tablet {
       height: 70vh;
     }
     @include desktop {
-      max-width: 880px;
+      height: 60vh;
+      max-width: 820px;
       margin: 0 auto;
-      height: 67vh;
     }
   }
   &__clip {
     width: 100%;
-    object-fit: cover;
     height: 60vh;
+    object-fit: cover;
     @include tablet {
       height: 70vh;
     }
     @include desktop {
-      height: 67vh;
-      max-width: 880px;
+      height: 60vh;
+      max-width: 820px;
     }
   }
   @include tablet {
-    background-color: $BrainFlix-DarkBlack;
-    padding: 0 2.25rem;
     height: 70vh;
+    padding: 0 2.25rem;
   }
   @include desktop {
-    padding: 0 12.5rem;
-    height: 67vh;
+    height: 60vh;
   }
 }

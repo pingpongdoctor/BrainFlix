@@ -11,7 +11,7 @@ const Conversation = function ({ commentArr, handlerSubmit }) {
           {commentArr.length} Comments
         </p>
         <div className="conversation__wrap">
-          <Avatar className="avatar avatar--form" src={mohanPic} />
+          <Avatar className="avatar avatar--form" src={mohanPic} alt="avatar" />
           <Form handlerSubmit={handlerSubmit} />
         </div>
         <CommentList commentArr={commentArr} />

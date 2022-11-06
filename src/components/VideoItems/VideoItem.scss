@@ -5,13 +5,13 @@
 .video-list {
   &__item {
     display: flex;
+    align-items: center;
     gap: 1rem;
     width: 20.5rem;
     padding-bottom: 1rem;
-    align-items: center;
     @include tablet {
-      padding-bottom: 1.5rem;
       gap: 1.5rem;
+      padding-bottom: 1.5rem;
     }
   }
 
