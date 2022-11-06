@@ -15,11 +15,9 @@
   background-size: 1.2rem;
   background-position: 0.7rem;
   height: 40px;
+
   &:hover {
     background-color: $BrainFlix-DarkBlue;
-  }
-  @include tablet {
-    padding: 0 32px;
   }
 
   &--header {
@@ -35,5 +33,9 @@
       margin-bottom: 0.3rem;
       width: 150px;
     }
+  }
+
+  @include tablet {
+    padding: 0 2rem;
   }
 }

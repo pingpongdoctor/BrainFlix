@@ -2,21 +2,9 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/mixins" as *;
 
-.next-video {
+.video-list {
   padding: 0 1rem;
-  @include tablet {
-    padding: 0 2.25rem;
-  }
-  @include desktop {
-    padding: 0 0 0 1.5rem;
-    flex: auto;
-  }
 
-  // &__container {
-  //   @include desktop {
-  //     max-width: 328px;
-  //   }
-  // }
   &__list {
     list-style: none;
     padding: 0;
@@ -27,5 +15,14 @@
     color: $Silver;
     font-weight: 500;
     text-transform: uppercase;
+  }
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding: 0 0 0 1.5rem;
+    flex: auto;
   }
 }

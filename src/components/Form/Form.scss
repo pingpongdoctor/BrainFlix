@@ -32,7 +32,7 @@
     border-radius: 4px;
     border: 1px solid $Mercury;
     margin-bottom: 1rem;
-    padding: 10px;
+    padding: 0.625rem;
     width: 100%;
     font-family: "Avenir Next";
     overflow: hidden;
@@ -44,10 +44,6 @@
       margin-bottom: 0;
     }
   }
-
-  // &__input--focus {
-  //   border: 2px solid $BrainFlix-Blue;
-  // }
 
   &__input--error {
     border: 2px solid #d22d2d;

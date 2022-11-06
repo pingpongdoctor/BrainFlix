@@ -1,12 +1,12 @@
-import "./NextVideo.scss";
+import "./VideoList.scss";
 import VideoItem from "../VideoItems/VideoItem";
 
-const NextVideo = function ({ videoArr, id, videoHandler }) {
+const VideoList = function ({ videoArr, id, videoHandler }) {
   return (
-    <section className="next-video">
-      <div className="next-video__container">
-        <h2 className="next-video__heading">Next Video</h2>
-        <ul className="next-video__list">
+    <section className="video-list">
+      <div className="video-list__container">
+        <h2 className="video-list__heading">Next Video</h2>
+        <ul className="video-list__list">
           {videoArr
             .filter((video) => video.id !== id)
             .map((video) => (
@@ -25,4 +25,4 @@ const NextVideo = function ({ videoArr, id, videoHandler }) {
   );
 };
 
-export default NextVideo;
+export default VideoList;

@@ -1,3 +1,4 @@
+//FUNCTION USED TO CONVERT TIMESTAMPS
 export const timeConvDetail = function (timestamp) {
   const timeInfo = new Date(timestamp);
   const timeInfoCurrent = new Date();

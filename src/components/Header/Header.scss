@@ -6,12 +6,6 @@
 
 .header {
   padding: 1rem;
-  @include tablet {
-    padding: 1.5rem 2.25rem;
-  }
-  @include desktop {
-    padding: 1.5rem 8.8rem;
-  }
 
   &__container {
     display: flex;
@@ -52,5 +46,13 @@
     &::placeholder {
       color: $BrainFlix-Black;
     }
+  }
+
+  @include tablet {
+    padding: 1.5rem 2.25rem;
+  }
+  
+  @include desktop {
+    padding: 1.5rem 8.8rem;
   }
 }

@@ -2,7 +2,7 @@
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/mixins" as *;
 
-.next-video {
+.video-list {
   &__item {
     display: flex;
     gap: 1rem;

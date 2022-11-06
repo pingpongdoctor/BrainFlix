@@ -2,7 +2,6 @@
 @use "./styles/partials/fonts" as *;
 @use "./styles/partials/mixins" as *;
 
-//General setting
 * {
   box-sizing: border-box;
 }
@@ -10,63 +9,61 @@
 body {
   font-family: "Avenir Next";
   font-weight: 400;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
   margin: 0;
   @include tablet {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
   }
 }
 
 h1 {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 700;
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
   @include tablet {
-    font-size: 33px;
-    line-height: 44px;
-    margin-top: 36px;
-    margin-bottom: 24px;
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 
 h2 {
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 700;
-  margin-top: 24px;
-  margin-bottom: 16px;
+  @extend button;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
   @include tablet {
-    margin-top: 36px;
-    margin-bottom: 24px;
+    margin-top: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 
 h3 {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
   font-weight: 700;
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
   @include tablet {
-    font-size: 14px;
-    line-height: 22px;
-    margin-top: 36px;
-    margin-bottom: 24px;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 
 button {
   font-family: "Avenir Next";
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
   font-weight: 700;
 }
 
-//Display flex for the video list and the main video's infor
+//MAKE THE VIDEO LIST THE BE SIDE BY SIDE WITH THE CONVERSATION AND MAIN VIDEO INFOR SECTION IN THE DESKTOP BREAKPOINT
 .App__flex {
   @include desktop {
     display: flex;

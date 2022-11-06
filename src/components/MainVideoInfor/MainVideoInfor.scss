@@ -4,17 +4,6 @@
 
 .main-infor {
   padding: 0 1rem 1rem 1rem;
-  @include tablet {
-    padding: 0 2.25rem;
-  }
-  @include desktop {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  // &__container {
-  //   max-width: 711px;
-  // }
 
   &__heading {
     border-bottom: 1px solid $Mercury;
@@ -100,5 +89,14 @@
       order: 0;
       margin-right: auto;
     }
+  }
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding-right: 0;
+    padding-left: 0;
   }
 }

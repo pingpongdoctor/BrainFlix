@@ -4,17 +4,7 @@
 
 .conversation {
   padding: 0 1rem;
-  @include tablet {
-    padding: 0 2.25rem;
-  }
-  @include desktop {
-    padding-right: 0;
-    padding-left: 0;
-  }
 
-  // &__container {
-  //   max-width: 711px;
-  // }
   &__wrap {
     display: flex;
     gap: 1rem;
@@ -35,5 +25,14 @@
     @include desktop {
       margin-bottom: 0;
     }
+  }
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  @include desktop {
+    padding-right: 0;
+    padding-left: 0;
   }
 }

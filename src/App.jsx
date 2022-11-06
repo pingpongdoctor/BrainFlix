@@ -2,7 +2,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import videoArr from "./data/video-details.json";
 import MainVideoInfor from "./components/MainVideoInfor/MainVideoInfor";
-import NextVideo from "./components/NextVideo/NextVideo";
+import VideoList from "./components/VideoList/VideoList";
 import Conversation from "./components/Conversation/Conversation";
 import MainVideo from "./components/MainVideo/MainVideo";
 import { v4 as uuid } from "uuid";
@@ -41,7 +41,7 @@ function App() {
               submitHandler={submitHandler}
             />
           </div>
-          <NextVideo
+          <VideoList
             id={activeVideo.id}
             videoArr={videoArr}
             videoHandler={videoHandler}
