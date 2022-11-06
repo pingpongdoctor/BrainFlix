@@ -36,6 +36,7 @@
     border-radius: 4px;
     margin-bottom: 1rem;
     padding: 0.625rem;
+    background-color: $Alabaster;
     &:focus {
       border: 2px solid $BrainFlix-Blue;
     }
@@ -46,6 +47,6 @@
   }
 
   &__input--error {
-    border: 2px solid #d22d2d;
+    border: 1px solid #d22d2d;
   }
 }
