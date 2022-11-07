@@ -3,9 +3,9 @@ import VideoItem from "../VideoItems/VideoItem";
 
 const VideoList = function ({ videoArr, id, handlerVideo }) {
   return (
-    <section className="video-list">
+    <div className="video-list">
       <div className="video-list__container">
-        <h2 className="video-list__heading">Next Video</h2>
+        <p className="video-list__heading">Next Video</p>
         <ul className="video-list__list">
           {videoArr
             .filter((video) => video.id !== id)
@@ -21,7 +21,7 @@ const VideoList = function ({ videoArr, id, handlerVideo }) {
             ))}
         </ul>
       </div>
-    </section>
+    </div>
   );
 };
 

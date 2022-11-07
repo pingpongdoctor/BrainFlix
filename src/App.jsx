@@ -9,14 +9,16 @@ import { v4 as uuid } from "uuid";
 import { useState } from "react";
 
 function App() {
-  //USESTATE
+  //USETATE HOLDS THE OBJECT OF MAIN VIDEO
   const [activeVideo, setActiveVideo] = useState(videoArr[0]);
-  //FUNCTION TO UPDATE THE CLICKED VIDEO
+
+  //FUNCTION TO UPDATE THE MAIN VIDEO
   const handlerVideo = function (id) {
     const newVideo = videoArr.find((video) => video.id === id);
     setActiveVideo(newVideo);
   };
-  //FUNCTION TO SUBMIT
+
+  //FUNCTION TO SUBMIT COMMENTS
   const handlerSubmit = function (comment) {
     const newCommentObj = {
       id: uuid(),
@@ -28,19 +30,27 @@ function App() {
     const newObj = { ...activeVideo, comments: newCommentArr };
     setActiveVideo(newObj);
   };
+
   return (
     <div className="App">
+      {/* HEADER */}
       <Header />
+      {/* MAIN VIDEO */}
       <MainVideo poster={activeVideo.image} />
       <div className="App__container">
         <div className="App__flex">
+          {/* FLEX CONTAINER OF MAIN VIDEO INFORMATION, CONVERSATION AND VIDEO LIST IN DESKTOP BREAKPOINT */}
+
           <div className="App__flex-box">
+            {/* MAIN VIDEO INFORMATION */}
             <MainVideoInfor activeVideo={activeVideo} />
+            {/* CONVERSATION */}
             <Conversation
               commentArr={activeVideo.comments}
               handlerSubmit={handlerSubmit}
             />
           </div>
+          {/* VIDEO LIST */}
           <VideoList
             id={activeVideo.id}
             videoArr={videoArr}

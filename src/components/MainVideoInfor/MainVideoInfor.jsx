@@ -3,7 +3,7 @@ import { timeConvDetail } from "../Utils/utils";
 
 const MainVideoInfor = function ({ activeVideo }) {
   return (
-    <div className="main-infor">
+    <section className="main-infor">
       <div className="main-infor__container">
         <h1 className="main-infor__heading">{activeVideo.title}</h1>
         <div className="main-infor__wrap">
@@ -16,7 +16,7 @@ const MainVideoInfor = function ({ activeVideo }) {
         </div>
         <p className="main-infor__text">{activeVideo.description}</p>
       </div>
-    </div>
+    </section>
   );
 };
 

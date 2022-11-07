@@ -5,7 +5,7 @@ import "./Conversation.scss";
 import CommentList from "../CommentList/CommentList";
 const Conversation = function ({ commentArr, handlerSubmit }) {
   return (
-    <section className="conversation">
+    <div className="conversation">
       <div className=" conversation__container">
         <p className="conversation__comment-num">
           {commentArr.length} Comments
@@ -16,7 +16,7 @@ const Conversation = function ({ commentArr, handlerSubmit }) {
         </div>
         <CommentList commentArr={commentArr} />
       </div>
-    </section>
+    </div>
   );
 };
 
