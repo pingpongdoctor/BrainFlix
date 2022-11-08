@@ -1,6 +1,7 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/fonts" as *;
 @use "./styles/partials/mixins" as *;
+@use "./styles/partials/global" as *;
 
 * {
   box-sizing: border-box;
@@ -61,29 +62,4 @@ button {
   font-size: 0.75rem;
   line-height: 1.25rem;
   font-weight: 700;
-}
-
-//MAKE THE VIDEO LIST THE BE SIDE BY SIDE WITH THE DIV OF CONVERSATION AND MAIN VIDEO INFOR SECTION IN THE DESKTOP BREAKPOINT
-.App {
-  &__container {
-    @include desktop {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-  }
-
-  &__flex {
-    @include desktop {
-      display: flex;
-      margin: 0 auto;
-      padding-left: 5rem;
-      padding-right: 5rem;
-    }
-  }
-
-  &__flex-box {
-    @include desktop {
-      border-right: 1px solid $Mercury;
-    }
-  }
 }

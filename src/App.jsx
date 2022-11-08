@@ -1,13 +1,9 @@
 import "./App.scss";
-import Header from "./components/Header/Header";
 import videoArr from "./data/video-details.json";
-import MainVideoInfor from "./components/MainVideoInfor/MainVideoInfor";
-import VideoList from "./components/VideoList/VideoList";
-import Conversation from "./components/Conversation/Conversation";
-import MainVideo from "./components/MainVideo/MainVideo";
+import HomePage from "./pages/HomePage/HomePage";
 import { v4 as uuid } from "uuid";
 import { useState } from "react";
-
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 function App() {
   //USETATE HOLDS THE OBJECT OF MAIN VIDEO
   const [activeVideo, setActiveVideo] = useState(videoArr[0]);
@@ -32,33 +28,28 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {/* HEADER */}
-      <Header />
-      {/* MAIN VIDEO */}
-      <MainVideo poster={activeVideo.image} />
-      <div className="App__container">
-        <div className="App__flex">
-          {/* FLEX CONTAINER OF MAIN VIDEO INFORMATION, CONVERSATION AND VIDEO LIST IN DESKTOP BREAKPOINT */}
-
-          <div className="App__flex-box">
-            {/* MAIN VIDEO INFORMATION */}
-            <MainVideoInfor activeVideo={activeVideo} />
-            {/* CONVERSATION */}
-            <Conversation
-              commentArr={activeVideo.comments}
-              handlerSubmit={handlerSubmit}
-            />
-          </div>
-          {/* VIDEO LIST */}
-          <VideoList
-            id={activeVideo.id}
-            videoArr={videoArr}
-            handlerVideo={handlerVideo}
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                poster={activeVideo.image}
+                activeVideo={activeVideo}
+                commentArr={activeVideo.comments}
+                handlerSubmit={handlerSubmit}
+                id={activeVideo.id}
+                videoArr={videoArr}
+                handlerVideo={handlerVideo}
+              />
+            }
           />
-        </div>
+          <Route path="/Home" element={<Navigate to="/" />} />
+          <Route path="*" element={<h1>PLEASE USE THE RIGHT URL</h1>} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
