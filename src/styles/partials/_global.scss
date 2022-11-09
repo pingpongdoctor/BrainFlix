@@ -22,6 +22,15 @@
   &-box {
     @include desktop {
       border-right: 1px solid $Mercury;
+      color: black;
     }
   }
+}
+
+a:link,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: black;
 }

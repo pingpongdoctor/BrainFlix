@@ -4,7 +4,7 @@ import logoPic from "../../assets/Images/Logo/BrainFlix-logo.svg";
 import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 import Avatar from "../Avatar/Avatar";
-const Header = () => {
+const Header = ({ className }) => {
   return (
     <header className="header">
       <div className="header__container">

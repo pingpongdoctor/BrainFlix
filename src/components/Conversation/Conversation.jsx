@@ -3,7 +3,7 @@ import Avatar from "../Avatar/Avatar";
 import mohanPic from "../../assets/Images/Mohan-muruge.jpg";
 import "./Conversation.scss";
 import CommentList from "../CommentList/CommentList";
-const Conversation = function ({ commentArr, handlerSubmit }) {
+const Conversation = function ({ commentArr }) {
   return (
     <div className="conversation">
       <div className=" conversation__container">
@@ -12,7 +12,7 @@ const Conversation = function ({ commentArr, handlerSubmit }) {
         </p>
         <div className="conversation__wrap">
           <Avatar className="avatar avatar--form" src={mohanPic} alt="avatar" />
-          <Form handlerSubmit={handlerSubmit} />
+          <Form />
         </div>
         <CommentList commentArr={commentArr} />
       </div>

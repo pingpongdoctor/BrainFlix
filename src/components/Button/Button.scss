@@ -36,6 +36,13 @@
     }
   }
 
+  &--upload {
+    background-image: url("../../assets/Images/Icons/publish.svg");
+    @include tablet {
+      width: 150px;
+    }
+  }
+
   @include tablet {
     padding: 0 2rem;
   }

@@ -1,20 +1,21 @@
 import "./MainVideoInfor.scss";
 import { timeConvDetail } from "../Utils/utils";
 
-const MainVideoInfor = function ({ activeVideo }) {
+const MainVideoInfor = function ({ currentVideo }) {
+  console.log(currentVideo);
   return (
     <section className="main-infor">
       <div className="main-infor__container">
-        <h1 className="main-infor__heading">{activeVideo.title}</h1>
+        <h1 className="main-infor__heading">{currentVideo.title}</h1>
         <div className="main-infor__wrap">
-          <p className="main-infor__channel">By {activeVideo.channel}</p>
-          <p className="main-infor__views">{activeVideo.views}</p>
+          <p className="main-infor__channel">By {currentVideo.channel}</p>
+          <p className="main-infor__views">{currentVideo.views}</p>
           <p className="main-infor__time">
-            {timeConvDetail(activeVideo.timestamp)}
+            {timeConvDetail(currentVideo.timestamp)}
           </p>
-          <p className="main-infor__likes">{activeVideo.likes}</p>
+          <p className="main-infor__likes">{currentVideo.likes}</p>
         </div>
-        <p className="main-infor__text">{activeVideo.description}</p>
+        <p className="main-infor__text">{currentVideo.description}</p>
       </div>
     </section>
   );

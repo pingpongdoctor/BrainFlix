@@ -1,14 +1,14 @@
 import "./VideoList.scss";
 import VideoItem from "../VideoItems/VideoItem";
 
-const VideoList = function ({ videoArr, id, handlerVideo }) {
+const VideoList = function ({ videoList, currentVideo }) {
   return (
     <div className="video-list">
       <div className="video-list__container">
         <p className="video-list__heading">Next Video</p>
         <ul className="video-list__list">
-          {videoArr
-            .filter((video) => video.id !== id)
+          {videoList
+            .filter((video) => video.id !== currentVideo.id)
             .map((video) => (
               <VideoItem
                 key={video.id}
@@ -16,7 +16,6 @@ const VideoList = function ({ videoArr, id, handlerVideo }) {
                 url={video.image}
                 title={video.title}
                 channel={video.channel}
-                handlerVideo={handlerVideo}
               />
             ))}
         </ul>
