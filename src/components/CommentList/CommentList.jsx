@@ -7,9 +7,12 @@ const CommentList = function (props) {
         <CommentItem
           id={comment.id}
           key={comment.id}
+          likes={comment.likes}
           name={comment.name}
           comment={comment.comment}
           time={comment.timestamp}
+          handleOnClickDelete={props.handleOnClickDelete}
+          handleOnClickLike={props.handleOnClickLike}
         />
       ))}
     </ul>

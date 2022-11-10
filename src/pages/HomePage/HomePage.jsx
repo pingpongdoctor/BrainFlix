@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 export default function HomePage() {
   //STATE FOR THE CURRENT VIDEO
   const [currentVideo, setCurrentVideo] = useState(null);
-  //State for the videoList
+  //STATE FOR THE VIDEO LIST
   const [videoList, setVideoList] = useState([]);
   //GET DATA ARRAY AN STORE IT IN THE VIDEOLIST STATE
   useEffect(() => {
@@ -20,7 +20,6 @@ export default function HomePage() {
         "https://project-2-api.herokuapp.com/videos?api_key=317d0969-049f-457c-b0f4-aa24cb948a29"
       )
       .then((response) => {
-        console.log(response.data);
         setVideoList(response.data);
       })
       .catch((error) => {
@@ -42,7 +41,6 @@ export default function HomePage() {
           `https://project-2-api.herokuapp.com/videos/${getId}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
         )
         .then((response) => {
-          console.log(response);
           setCurrentVideo(response.data);
         })
         .catch((error) => {
@@ -51,6 +49,80 @@ export default function HomePage() {
     }
   }, [id, videoList]);
 
+  //SUBMIT FUNCTION
+  const handleSubmit = function (event, comment) {
+    event.preventDefault();
+    const commentPost = {
+      name: "Simon",
+      comment: comment,
+    };
+
+    axios
+      .post(
+        `https://project-2-api.herokuapp.com/videos/${currentVideo.id}/comments?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`,
+        commentPost
+      )
+      .then((response) => {
+        axios
+          .get(
+            `https://project-2-api.herokuapp.com/videos/${currentVideo.id}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
+          )
+          .then((response) => {
+            setCurrentVideo(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  //DELETE FUNCTION
+  const handleOnClickDelete = function (commentId) {
+    axios
+      .delete(
+        `https://project-2-api.herokuapp.com/videos/${currentVideo.id}/comments/${commentId}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
+      )
+      .then((response) => {
+        axios
+          .get(
+            `https://project-2-api.herokuapp.com/videos/${currentVideo.id}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
+          )
+          .then((response) => {
+            setCurrentVideo(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  //LIKE FUNCTION
+  const handleOnClickLike = function (commentId) {
+    axios
+      .put(
+        `https://project-2-api.herokuapp.com/videos/${currentVideo.id}/comments/${commentId}/likes?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
+      )
+      .then((response) => {
+        axios
+          .get(
+            `https://project-2-api.herokuapp.com/videos/${currentVideo.id}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
+          )
+          .then((response) => {
+            console.log("running");
+            setCurrentVideo(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="home-page">
       {/* HEADER */}
@@ -66,7 +138,12 @@ export default function HomePage() {
             {currentVideo && <MainVideoInfor currentVideo={currentVideo} />}
             {/* CONVERSATION */}
             {currentVideo && (
-              <Conversation commentArr={currentVideo.comments} />
+              <Conversation
+                handleSubmit={handleSubmit}
+                commentArr={currentVideo.comments}
+                handleOnClickDelete={handleOnClickDelete}
+                handleOnClickLike={handleOnClickLike}
+              />
             )}
           </div>
           {/* VIDEO LIST */}

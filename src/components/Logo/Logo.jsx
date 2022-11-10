@@ -1,7 +1,14 @@
 import "./Logo.scss";
 
-const Logo = ({ className, src, alt }) => {
-  return <img className={className} src={src} alt={alt} />;
+const Logo = ({ className, src, alt, handleOnClickHome }) => {
+  return (
+    <img
+      onClick={handleOnClickHome}
+      className={className}
+      src={src}
+      alt={alt}
+    />
+  );
 };
 
 export default Logo;

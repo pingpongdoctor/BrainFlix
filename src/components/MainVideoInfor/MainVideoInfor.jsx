@@ -2,7 +2,6 @@ import "./MainVideoInfor.scss";
 import { timeConvDetail } from "../Utils/utils";
 
 const MainVideoInfor = function ({ currentVideo }) {
-  console.log(currentVideo);
   return (
     <section className="main-infor">
       <div className="main-infor__container">
