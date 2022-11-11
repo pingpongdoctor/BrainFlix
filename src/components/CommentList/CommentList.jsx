@@ -1,9 +1,9 @@
 import "./CommentList.scss";
 import CommentItem from "../CommentItem/CommentItem";
-const CommentList = function (props) {
+const CommentList = function ({ handleOnClickDelete, commentArr }) {
   return (
     <ul className="conversation__comment-list">
-      {props.commentArr.map((comment) => (
+      {commentArr.map((comment) => (
         <CommentItem
           id={comment.id}
           key={comment.id}
@@ -11,8 +11,7 @@ const CommentList = function (props) {
           name={comment.name}
           comment={comment.comment}
           time={comment.timestamp}
-          handleOnClickDelete={props.handleOnClickDelete}
-          handleOnClickLike={props.handleOnClickLike}
+          handleOnClickDelete={handleOnClickDelete}
         />
       ))}
     </ul>

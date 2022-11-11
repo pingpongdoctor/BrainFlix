@@ -1,5 +1,5 @@
 import "./MainVideoInfor.scss";
-import { timeConvDetail } from "../Utils/utils";
+import { timeConvDetail } from "../../Utils/utils";
 
 const MainVideoInfor = function ({ currentVideo }) {
   return (

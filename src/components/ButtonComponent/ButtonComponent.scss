@@ -9,8 +9,8 @@
   border: none;
   border-radius: 4px;
   text-transform: uppercase;
-  color: $White;
-  background-color: $BrainFlix-Blue;
+  color: $Button-Text-Color;
+  background-color: $Button-Color;
   background-image: url("../../assets/Images/Icons/upload.svg");
   background-repeat: no-repeat;
   background-size: 1.2rem;
@@ -18,7 +18,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $BrainFlix-DarkBlue;
+    background-color: $Button-Color-Hover;
   }
 
   &--header {

@@ -1,13 +1,10 @@
 import "./Logo.scss";
-
-const Logo = ({ className, src, alt, handleOnClickHome }) => {
+import { Link } from "react-router-dom";
+const Logo = ({ logoClassName, logoSrc, logoAlt }) => {
   return (
-    <img
-      onClick={handleOnClickHome}
-      className={className}
-      src={src}
-      alt={alt}
-    />
+    <Link className={logoClassName} to={"/"}>
+      <img src={logoSrc} alt={logoAlt} />
+    </Link>
   );
 };
 

@@ -8,10 +8,10 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/Home" element={<Navigate to="/" />} />
-          <Route path="/Video" element={<HomePage />} />
-          <Route path="/Video/:id" element={<HomePage />} />
-          <Route path="/Upload" element={<UploadPage />} />
+          <Route path="/home" element={<Navigate to="/" />} />
+          <Route path="/video" element={<HomePage />} />
+          <Route path="/video/:id" element={<HomePage />} />
+          <Route path="/upload" element={<UploadPage />} />
           <Route path="*" element={<h1>PLEASE USE THE RIGHT URL</h1>} />
         </Routes>
       </div>

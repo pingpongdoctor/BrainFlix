@@ -34,22 +34,10 @@
 
   &__input {
     width: 100%;
-    height: 40px;
-    padding: 0.5rem 3rem;
-    outline: none;
+    padding: 0.625rem 3rem;
     background-image: url("../../assets/Images/Icons/search.svg");
     background-size: 1rem;
     background-position: 1rem;
-    background-repeat: no-repeat;
-    border: 1px solid $Mercury;
-    border-radius: 4px;
-    background-color: $Alabaster;
-    &:focus {
-      border: 2px solid $BrainFlix-Blue;
-    }
-    &::placeholder {
-      color: $BrainFlix-Black;
-    }
   }
 
   @include tablet {

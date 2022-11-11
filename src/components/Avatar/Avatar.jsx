@@ -1,7 +1,7 @@
 import "./Avatar.scss";
 
-const Avatar = function ({ className, src, alt }) {
-  return <img className={className} src={src} alt={alt} />;
+const Avatar = function ({ avatarClassName, avatarSrc, avatarAlt }) {
+  return <img className={avatarClassName} src={avatarSrc} alt={avatarAlt} />;
 };
 
 export default Avatar;

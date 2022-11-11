@@ -1,12 +1,62 @@
 import "./UploadPage.scss";
-import Header from "../../components/Header/Header";
-import Button from "../../components/Button/Button";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import thumbnail from "../../assets/Images/Upload-video-preview.jpg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function UploadPage() {
+  //STATE TO TRACK FORM
+  const [title, setTitle] = useState("");
+  const [descript, setDescript] = useState("");
+  //FUNCTION TO UPDATE FORM STATES
+  const handleChangeTitle = function (event) {
+    setTitle(event.target.value);
+  };
+  const handleChangeDescript = function (event) {
+    setDescript(event.target.value);
+  };
+  //FUNCTION TESTING IF INPUT VALUES ARE VALID OR NOT
+  const isTitleValid = function () {
+    if (title && [...title].length > 10) {
+      return true;
+    }
+    return false;
+  };
+
+  const isDescriptValid = function () {
+    if (descript && [...descript].length > 10) {
+      return true;
+    }
+    return false;
+  };
+  const isFormValid = function () {
+    if (!isTitleValid()) {
+      return false;
+    } else if (!isDescriptValid()) {
+      return false;
+    }
+    return true;
+  };
+  const navigate = useNavigate();
+  //FUNCTION TO REDIRECT TO HOMEPAGE
+  const handleOnClickHome = function () {
+    navigate("/");
+  };
+  //FUNCTION TO PUBLISH
+  const handleOnClickPublish = function (event) {
+    event.preventDefault();
+    if (!isFormValid()) {
+      alert("Make sure inserting at least 10 letters for each input box");
+    } else {
+      alert("Thank you for uploading");
+      navigate("/");
+    }
+  };
   return (
     <div className="upload">
-      <Header />
-      <form className="upload__form">
+      <PageHeader />
+      <form onSubmit={handleOnClickPublish} className="upload__form">
         <div className="upload__container">
           <h1 className="upload__heading">Upload Video</h1>
           <div className="upload__big-wrap">
@@ -20,34 +70,48 @@ export default function UploadPage() {
             </div>
 
             <div className="upload__wrapper">
-              <label className="upload__label upload__text" htmlFor="vid-title">
+              <label className="upload__text" htmlFor="vid-title">
                 title for video
               </label>
               <textarea
-                className="upload__title-input"
+                className={
+                  isTitleValid()
+                    ? "input upload__title-input"
+                    : "input upload__title-input upload__title-input--error"
+                }
                 name="title"
                 id="vid-title"
                 wrap="hard"
                 placeholder="Add a title to your video"
+                value={title}
+                onChange={handleChangeTitle}
               ></textarea>
-              <label
-                className="upload__label upload__text"
-                htmlFor="vid-descript"
-              >
+              <label className="upload__text" htmlFor="vid-descript">
                 add a video description
               </label>
               <textarea
-                className="upload__descript-input"
+                className={
+                  isDescriptValid()
+                    ? "input upload__descript-input"
+                    : "input upload__descript-input upload__descript-input--error"
+                }
                 name="description"
                 id="vid-descript"
                 wrap="hard"
                 placeholder="Add a title to your video"
+                value={descript}
+                onChange={handleChangeDescript}
               ></textarea>
             </div>
           </div>
           <div className="upload__ending">
-            <Button className="btn btn--upload" btnContent="publish" />
-            <p className="upload__cancel">cancel</p>
+            <ButtonComponent
+              btnClassName="btn btn--upload"
+              btnContent="publish"
+            />
+            <button onClick={handleOnClickHome} className="upload__cancel">
+              cancel
+            </button>
           </div>
         </div>
       </form>

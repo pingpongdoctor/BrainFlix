@@ -8,7 +8,7 @@
   &__wrap {
     display: flex;
     gap: 1rem;
-    border-bottom: 1px solid $Mercury;
+    border-bottom: 1px solid $Border-Color;
     padding-bottom: 1rem;
     @include tablet {
       gap: 1.5rem;

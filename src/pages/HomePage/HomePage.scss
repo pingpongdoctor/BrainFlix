@@ -1,4 +1,28 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
-@use "../../styles/partials/global" as *;
+
+.home-page {
+  &__container {
+    @include desktop {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+  }
+
+  &__flex {
+    @include desktop {
+      display: flex;
+      margin: 0 auto;
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+  }
+
+  &__box {
+    @include desktop {
+      border-right: 1px solid $Border-Color;
+      color: black;
+    }
+  }
+}

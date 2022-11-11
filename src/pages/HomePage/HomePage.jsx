@@ -3,7 +3,7 @@ import MainVideoInfor from "../../components/MainVideoInfor/MainVideoInfor";
 import VideoList from "../../components/VideoList/VideoList";
 import Conversation from "../../components/Conversation/Conversation";
 import MainVideo from "../../components/MainVideo/MainVideo";
-import Header from "../../components/Header/Header";
+import PageHeader from "../../components/PageHeader/PageHeader";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -13,14 +13,17 @@ export default function HomePage() {
   const [currentVideo, setCurrentVideo] = useState(null);
   //STATE FOR THE VIDEO LIST
   const [videoList, setVideoList] = useState([]);
+  //VARIABLE STRORES THE LINK TO VIDEO ENDPOINT
+  const webLink = "https://project-2-api.herokuapp.com/videos";
+  //VARIABLE STRORES THE API KEY
+  const apiKey = "?api_key=317d0969-049f-457c-b0f4-aa24cb948a29";
   //GET DATA ARRAY AN STORE IT IN THE VIDEOLIST STATE
   useEffect(() => {
     axios
-      .get(
-        "https://project-2-api.herokuapp.com/videos?api_key=317d0969-049f-457c-b0f4-aa24cb948a29"
-      )
+      .get(`${webLink}${apiKey}`)
       .then((response) => {
-        setVideoList(response.data);
+        const videoListArr = response.data;
+        setVideoList(videoListArr);
       })
       .catch((error) => {
         console.log(error);
@@ -35,11 +38,10 @@ export default function HomePage() {
         videoList.filter((obj) => obj.id === id).length > 0 &&
         id) ||
       (videoList[0] && videoList[0].id);
+
     if (getId) {
       axios
-        .get(
-          `https://project-2-api.herokuapp.com/videos/${getId}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
-        )
+        .get(`${webLink}/${getId}${apiKey}`)
         .then((response) => {
           setCurrentVideo(response.data);
         })
@@ -48,76 +50,43 @@ export default function HomePage() {
         });
     }
   }, [id, videoList]);
-
-  //SUBMIT FUNCTION
-  const handleSubmit = function (event, comment) {
-    event.preventDefault();
-    const commentPost = {
-      name: "Simon",
-      comment: comment,
-    };
-
+  //FUNCTION USED TO GET THE CURRENT VIDEO OBJECT AND UPDATE THE OBJECT TO THE CURRENTVIDEO STATE
+  const getAndUpdateCurrentVideo = function (response) {
     axios
-      .post(
-        `https://project-2-api.herokuapp.com/videos/${currentVideo.id}/comments?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`,
-        commentPost
-      )
+      .get(`${webLink}/${currentVideo.id}${apiKey}`)
       .then((response) => {
-        axios
-          .get(
-            `https://project-2-api.herokuapp.com/videos/${currentVideo.id}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
-          )
-          .then((response) => {
-            setCurrentVideo(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        setCurrentVideo(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+  //SUBMIT FUNCTION
+  const handleOnSubmitComment = function (event, comment) {
+    event.preventDefault();
+    if (comment && [...comment].length > 10) {
+      const commentPost = {
+        name: "Simon",
+        comment: comment,
+      };
+      axios
+        .post(`${webLink}/${currentVideo.id}/comments${apiKey}`, commentPost)
+        .then((response) => {
+          getAndUpdateCurrentVideo(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      alert("Comment at least 10 letters");
+    }
   };
   //DELETE FUNCTION
   const handleOnClickDelete = function (commentId) {
     axios
-      .delete(
-        `https://project-2-api.herokuapp.com/videos/${currentVideo.id}/comments/${commentId}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
-      )
+      .delete(`${webLink}/${currentVideo.id}/comments/${commentId}${apiKey}`)
       .then((response) => {
-        axios
-          .get(
-            `https://project-2-api.herokuapp.com/videos/${currentVideo.id}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
-          )
-          .then((response) => {
-            setCurrentVideo(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  //LIKE FUNCTION
-  const handleOnClickLike = function (commentId) {
-    axios
-      .put(
-        `https://project-2-api.herokuapp.com/videos/${currentVideo.id}/comments/${commentId}/likes?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
-      )
-      .then((response) => {
-        axios
-          .get(
-            `https://project-2-api.herokuapp.com/videos/${currentVideo.id}?api_key=317d0969-049f-457c-b0f4-aa24cb948a29`
-          )
-          .then((response) => {
-            console.log("running");
-            setCurrentVideo(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        getAndUpdateCurrentVideo(response);
       })
       .catch((error) => {
         console.log(error);
@@ -126,23 +95,24 @@ export default function HomePage() {
   return (
     <div className="home-page">
       {/* HEADER */}
-      <Header />
+      <PageHeader />
       {/* MAIN VIDEO */}
-      {currentVideo && <MainVideo poster={currentVideo.image} />}
-      <div className="page-container">
-        <div className="page-flex">
+      {currentVideo && <MainVideo videoPoster={currentVideo.image} />}
+      <div className="home-page__container">
+        <div className="home-page__flex">
           {/* FLEX CONTAINER OF MAIN VIDEO INFORMATION, CONVERSATION AND VIDEO LIST IN DESKTOP BREAKPOINT */}
 
-          <div className="page-box">
+          <div className="home-page__box">
             {/* MAIN VIDEO INFORMATION */}
             {currentVideo && <MainVideoInfor currentVideo={currentVideo} />}
             {/* CONVERSATION */}
             {currentVideo && (
               <Conversation
-                handleSubmit={handleSubmit}
-                commentArr={currentVideo.comments}
+                handleOnSubmitComment={handleOnSubmitComment}
+                commentArr={currentVideo.comments.sort(
+                  (a, b) => b.timestamp - a.timestamp
+                )}
                 handleOnClickDelete={handleOnClickDelete}
-                handleOnClickLike={handleOnClickLike}
               />
             )}
           </div>

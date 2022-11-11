@@ -1,10 +1,13 @@
 import "./MainVideo.scss";
-import { useParams } from "react-router-dom";
-const MainVideo = function ({ poster }) {
+const MainVideo = function ({ videoPoster }) {
   return (
     <div className="main-video">
       <div className="main-video__container">
-        <video className="main-video__clip" poster={poster} controls></video>
+        <video
+          className="main-video__clip"
+          poster={videoPoster}
+          controls
+        ></video>
       </div>
     </div>
   );
