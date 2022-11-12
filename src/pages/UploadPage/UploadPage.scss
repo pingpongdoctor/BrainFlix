@@ -15,8 +15,10 @@
   }
 
   &__container {
-    max-width: 1120px;
-    margin: 0 auto;
+    @include desktop {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
   }
 
   &__big-wrap {
