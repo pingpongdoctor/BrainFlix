@@ -1,9 +1,13 @@
-import Form from "../Form/Form";
+import FormComponent from "../FormComponent/FormComponent";
 import Avatar from "../Avatar/Avatar";
 import mohanPic from "../../assets/Images/Mohan-muruge.jpg";
 import "./Conversation.scss";
 import CommentList from "../CommentList/CommentList";
-const Conversation = function ({ commentArr, handlerSubmit }) {
+const Conversation = function ({
+  commentArr,
+  handleOnSubmitComment,
+  handleOnClickDelete,
+}) {
   return (
     <div className="conversation">
       <div className=" conversation__container">
@@ -11,10 +15,17 @@ const Conversation = function ({ commentArr, handlerSubmit }) {
           {commentArr.length} Comments
         </p>
         <div className="conversation__wrap">
-          <Avatar className="avatar avatar--form" src={mohanPic} alt="avatar" />
-          <Form handlerSubmit={handlerSubmit} />
+          <Avatar
+            avatarClassName="avatar avatar--form"
+            avatarSrc={mohanPic}
+            avatarAlt="avatar"
+          />
+          <FormComponent handleOnSubmitComment={handleOnSubmitComment} />
         </div>
-        <CommentList commentArr={commentArr} />
+        <CommentList
+          handleOnClickDelete={handleOnClickDelete}
+          commentArr={commentArr}
+        />
       </div>
     </div>
   );

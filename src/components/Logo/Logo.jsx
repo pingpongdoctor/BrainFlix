@@ -1,7 +1,11 @@
 import "./Logo.scss";
-
-const Logo = ({ className, src, alt }) => {
-  return <img className={className} src={src} alt={alt} />;
+import { Link } from "react-router-dom";
+const Logo = ({ logoClassName, logoSrc, logoAlt }) => {
+  return (
+    <Link to={"/"} className={logoClassName}>
+      <img src={logoSrc} alt={logoAlt} />
+    </Link>
+  );
 };
 
 export default Logo;

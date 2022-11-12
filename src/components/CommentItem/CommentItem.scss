@@ -6,7 +6,7 @@
   &__comment-item {
     display: flex;
     gap: 1rem;
-    border-bottom: 1px solid $Mercury;
+    border-bottom: 1px solid $Border-Color;
     padding: 1rem 0;
     @include tablet {
       gap: 1.5rem;
@@ -15,7 +15,7 @@
     @include desktop {
       gap: 2.25rem;
       padding: 1.5rem;
-      border-top: 1px solid $Mercury;
+      border-top: 1px solid $Border-Color;
       border-bottom: none;
     }
   }
@@ -41,6 +41,25 @@
 
   &__comment-time {
     margin: 0;
-    color: $Silver;
+    color: $Silver-Text-Color;
+  }
+
+  &__comment-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  &__comment-btn {
+    border: none;
+    background-color: $Black;
+    color: $Button-Text-Color;
+    padding: 0.3rem;
+    border-radius: 4px;
+    width: 50px;
+    height: 30px;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }

@@ -15,6 +15,11 @@
     }
   }
 
+  &__wrap {
+    width: 100%;
+    max-width: 175px;
+  }
+
   &__title {
     font-weight: bold;
     margin-top: 0;
@@ -30,15 +35,10 @@
     height: 4.3rem;
     object-fit: cover;
     border-radius: 4px;
-    background-color: $Mercury;
+    background-color: $Border-Color;
     @include tablet {
       width: 8rem;
       height: 5.1rem;
     }
-  }
-
-  &__wrap {
-    width: 100%;
-    max-width: 175px;
   }
 }

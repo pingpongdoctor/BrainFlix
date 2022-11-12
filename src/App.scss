@@ -1,8 +1,8 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/fonts" as *;
 @use "./styles/partials/mixins" as *;
-@use "./styles/partials/global" as *;
 
+// GENERAL STYLING
 * {
   box-sizing: border-box;
 }
@@ -62,4 +62,31 @@ button {
   font-size: 0.75rem;
   line-height: 1.25rem;
   font-weight: 700;
+}
+
+a:link,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+//INPUT BOX'S GENERAL STYLING
+.input {
+  font-family: "Avenir Next";
+  outline: none;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  background-color: $Input-Box-Background-Color;
+  border: 1px solid $Border-Color;
+  height: 40px;
+  resize: none;
+  overflow: hidden;
+  &:focus {
+    border: 2px solid $Button-Color;
+  }
+  &::placeholder {
+    color: $Black;
+  }
 }

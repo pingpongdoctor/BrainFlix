@@ -8,7 +8,7 @@
   &__heading {
     margin-bottom: 0;
     padding-bottom: 1rem;
-    border-bottom: 1px solid $Mercury;
+    border-bottom: 1px solid $Border-Color;
     @include tablet {
       padding-bottom: 0;
       border: none;
@@ -19,8 +19,8 @@
     display: flex;
     flex-wrap: wrap;
     padding: 1rem 0;
-    border-bottom: 1px solid $Mercury;
-    color: $Silver;
+    border-bottom: 1px solid $Border-Color;
+    color: $Silver-Text-Color;
     p {
       width: 50%;
       margin-bottom: 0;
@@ -41,7 +41,7 @@
 
   &__channel {
     font-weight: 600;
-    color: $BrainFlix-DarkBlack;
+    color: $DarkBlack;
     margin-top: 0;
     @include desktop {
       order: -1;

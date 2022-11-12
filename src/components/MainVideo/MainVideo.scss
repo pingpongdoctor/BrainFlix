@@ -3,8 +3,9 @@
 @use "../../styles/partials/fonts" as *;
 
 .main-video {
-  background-color: $BrainFlix-DarkBlack;
+  background-color: $DarkBlack;
   height: 45vh;
+
   &__container {
     height: 45vh;
     @include tablet {
@@ -12,7 +13,7 @@
     }
     @include desktop {
       height: 65vh;
-      max-width: 930px;
+      max-width: 968px;
       margin: 0 auto;
     }
   }
@@ -25,13 +26,15 @@
     }
     @include desktop {
       height: 65vh;
-      max-width: 930px;
+      max-width: 968px;
     }
   }
+
   @include tablet {
     height: 70vh;
     padding: 0 2.25rem;
   }
+
   @include desktop {
     height: 65vh;
   }
