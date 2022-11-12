@@ -6,10 +6,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function UploadPage() {
-  //STATE TO TRACK FORM
+  //STATE TO TRACK VALUES OF INPUT BOXES
   const [title, setTitle] = useState("");
   const [descript, setDescript] = useState("");
-  //FUNCTION TO UPDATE FORM STATES
+
+  //FUNCTION TO UPDATE STATES OF INPUT BOXES
   const handleChangeTitle = function (event) {
     setTitle(event.target.value);
   };
@@ -23,7 +24,6 @@ export default function UploadPage() {
     }
     return false;
   };
-
   const isDescriptValid = function () {
     if (descript && [...descript].length > 10) {
       return true;
@@ -38,24 +38,28 @@ export default function UploadPage() {
     }
     return true;
   };
-  const navigate = useNavigate();
+
   //FUNCTION TO REDIRECT TO HOMEPAGE
+  const navigate = useNavigate();
   const handleOnClickHome = function () {
     navigate("/");
   };
+
   //FUNCTION TO PUBLISH
   const handleOnClickPublish = function (event) {
     event.preventDefault();
     if (!isFormValid()) {
-      alert("Make sure inserting at least 10 letters for each input box");
+      alert("Make sure to insert at least 10 letters for each input box!");
     } else {
       alert("Thank you for uploading");
       navigate("/");
     }
   };
+
   return (
     <div className="upload">
       <PageHeader />
+      {/* UPLOAD PAGE FORM  */}
       <form onSubmit={handleOnClickPublish} className="upload__form">
         <div className="upload__container">
           <h1 className="upload__heading">Upload Video</h1>
@@ -68,8 +72,8 @@ export default function UploadPage() {
                 alt="video-thumbnail"
               />
             </div>
-
             <div className="upload__wrapper">
+              {/* TITLE INPUT BOX */}
               <label className="upload__text" htmlFor="vid-title">
                 title for video
               </label>
@@ -86,6 +90,7 @@ export default function UploadPage() {
                 value={title}
                 onChange={handleChangeTitle}
               ></textarea>
+              {/* DESCRIPTION INPUT BOX */}
               <label className="upload__text" htmlFor="vid-descript">
                 add a video description
               </label>
@@ -105,10 +110,12 @@ export default function UploadPage() {
             </div>
           </div>
           <div className="upload__ending">
+            {/* PUBLISH BUTTON */}
             <ButtonComponent
               btnClassName="btn btn--upload"
               btnContent="publish"
             />
+            {/* CANCEL BUTTON */}
             <button onClick={handleOnClickHome} className="upload__cancel">
               cancel
             </button>

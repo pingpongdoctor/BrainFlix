@@ -11,12 +11,16 @@ import { useState, useEffect } from "react";
 export default function HomePage() {
   //STATE FOR THE CURRENT VIDEO
   const [currentVideo, setCurrentVideo] = useState(null);
+
   //STATE FOR THE VIDEO LIST
   const [videoList, setVideoList] = useState([]);
+
   //VARIABLE STRORES THE LINK TO VIDEO ENDPOINT
   const webLink = "https://project-2-api.herokuapp.com/videos";
+
   //VARIABLE STRORES THE API KEY
   const apiKey = "?api_key=317d0969-049f-457c-b0f4-aa24cb948a29";
+
   //GET DATA ARRAY AN STORE IT IN THE VIDEOLIST STATE
   useEffect(() => {
     axios
@@ -29,8 +33,10 @@ export default function HomePage() {
         console.log(error);
       });
   }, []);
+
   //USE USEPARAMS TO GET ID
   const { id } = useParams();
+
   //USE ID TO GET DATA OF THE VIDEO OBJECT AND STORE IT IN THE CURRENTVIDEO STATE
   useEffect(() => {
     let getId =
@@ -50,6 +56,7 @@ export default function HomePage() {
         });
     }
   }, [id, videoList]);
+
   //FUNCTION USED TO GET THE CURRENT VIDEO OBJECT AND UPDATE THE OBJECT TO THE CURRENTVIDEO STATE
   const getAndUpdateCurrentVideo = function (response) {
     axios
@@ -61,6 +68,7 @@ export default function HomePage() {
         console.log(error);
       });
   };
+
   //SUBMIT FUNCTION
   const handleOnSubmitComment = function (event, comment) {
     event.preventDefault();
@@ -81,6 +89,7 @@ export default function HomePage() {
       alert("Comment at least 10 letters");
     }
   };
+
   //DELETE FUNCTION
   const handleOnClickDelete = function (commentId) {
     axios
@@ -94,7 +103,7 @@ export default function HomePage() {
   };
   return (
     <div className="home-page">
-      {/* HEADER */}
+      {/* PAGE HEADER */}
       <PageHeader />
       {/* MAIN VIDEO */}
       {currentVideo && <MainVideo videoPoster={currentVideo.image} />}

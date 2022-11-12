@@ -5,6 +5,7 @@
 .main-video {
   background-color: $DarkBlack;
   height: 45vh;
+
   &__container {
     height: 45vh;
     @include tablet {
@@ -28,10 +29,12 @@
       max-width: 968px;
     }
   }
+
   @include tablet {
     height: 70vh;
     padding: 0 2.25rem;
   }
+
   @include desktop {
     height: 65vh;
   }

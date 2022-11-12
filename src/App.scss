@@ -2,6 +2,7 @@
 @use "./styles/partials/fonts" as *;
 @use "./styles/partials/mixins" as *;
 
+// GENERAL STYLING
 * {
   box-sizing: border-box;
 }
@@ -71,6 +72,7 @@ a:visited {
   color: black;
 }
 
+//INPUT BOX'S GENERAL STYLING
 .input {
   font-family: "Avenir Next";
   outline: none;
