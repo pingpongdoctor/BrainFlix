@@ -5,6 +5,7 @@
 .logo {
   margin-bottom: 1rem;
   @include tablet {
+    padding-top: 0.4rem;
     margin-bottom: 0;
     margin-right: auto;
   }
