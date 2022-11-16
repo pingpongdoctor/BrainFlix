@@ -44,12 +44,6 @@
     color: $Silver-Text-Color;
   }
 
-  &__comment-btns {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-  }
-
   &__comment-btn {
     border: none;
     background-color: $Black;
@@ -58,6 +52,8 @@
     border-radius: 4px;
     width: 50px;
     height: 30px;
+    margin-left: auto;
+    display: block;
     &:hover {
       transform: scale(1.2);
     }

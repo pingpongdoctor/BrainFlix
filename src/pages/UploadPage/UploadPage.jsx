@@ -14,22 +14,26 @@ export default function UploadPage() {
   const handleChangeTitle = function (event) {
     setTitle(event.target.value);
   };
+
   const handleChangeDescript = function (event) {
     setDescript(event.target.value);
   };
   //FUNCTION TESTING IF INPUT VALUES ARE VALID OR NOT
+
   const isTitleValid = function () {
     if (title && [...title].length > 10) {
       return true;
     }
     return false;
   };
+
   const isDescriptValid = function () {
     if (descript && [...descript].length > 10) {
       return true;
     }
     return false;
   };
+
   const isFormValid = function () {
     if (!isTitleValid()) {
       return false;
@@ -41,6 +45,7 @@ export default function UploadPage() {
 
   //FUNCTION TO REDIRECT TO HOMEPAGE
   const navigate = useNavigate();
+
   const handleOnClickHome = function () {
     navigate("/");
   };

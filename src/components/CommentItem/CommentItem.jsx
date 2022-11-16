@@ -8,7 +8,6 @@ const CommentItem = function ({
   comment,
   handleOnClickDelete,
   id,
-  likes,
 }) {
   return (
     <li className="conversation__comment-item">
@@ -23,17 +22,15 @@ const CommentItem = function ({
           <p className="conversation__comment-time">{timeConvDetail(time)}</p>
         </div>
         <p className="conversation__comment-text">{comment}</p>
-        <div className="conversation__comment-btns">
-          <button className="conversation__comment-btn">Like:{likes}</button>
-          <button
-            onClick={() => {
-              handleOnClickDelete(id);
-            }}
-            className="conversation__comment-btn"
-          >
-            Delete
-          </button>
-        </div>
+
+        <button
+          onClick={() => {
+            handleOnClickDelete(id);
+          }}
+          className="conversation__comment-btn"
+        >
+          Delete
+        </button>
       </div>
     </li>
   );
