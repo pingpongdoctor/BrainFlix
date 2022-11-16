@@ -58,7 +58,7 @@ export default function HomePage() {
   }, [id, videoList]);
 
   //FUNCTION USED TO GET THE CURRENT VIDEO OBJECT AND UPDATE THE OBJECT TO THE CURRENTVIDEO STATE
-  const getAndUpdateCurrentVideo = function (response) {
+  const getAndUpdateCurrentVideo = function () {
     axios
       .get(`${webLink}/${currentVideo.id}${apiKey}`)
       .then((response) => {
