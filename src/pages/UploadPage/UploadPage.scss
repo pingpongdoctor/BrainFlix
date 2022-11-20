@@ -24,7 +24,6 @@
   &__big-wrap {
     @include desktop {
       display: flex;
-      align-items: center;
       gap: 1.5rem;
     }
   }
@@ -43,17 +42,30 @@
     }
   }
 
-  &__thumbnail {
-    width: 100%;
-    border-radius: 4px;
-    margin-bottom: 1rem;
+  &__file-input {
+    display: block;
+    margin-bottom: 1.5rem;
     @include tablet {
-      width: 50%;
       margin-bottom: 0;
     }
     @include desktop {
-      width: 325px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__thumbnail {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    &--display-none {
+      display: none;
+    }
+    @include tablet {
+      width: 50%;
+    }
+    @include desktop {
+      height: 172.891px;
+      width: auto;
     }
   }
 
@@ -69,6 +81,7 @@
   }
 
   &__text {
+    display: block;
     text-transform: uppercase;
     color: $Silver-Text-Color;
     font-weight: 600;
@@ -98,6 +111,9 @@
     @include tablet {
       margin-bottom: 1.5rem;
       height: 80px;
+    }
+    @include desktop {
+      margin-bottom: 4.1rem;
     }
   }
 

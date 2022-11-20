@@ -1,14 +1,19 @@
 import "./UploadPage.scss";
-import PageHeader from "../../components/PageHeader/PageHeader";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
-import thumbnail from "../../assets/Images/Upload-video-preview.jpg";
+// import thumbnail from "../../assets/Images/Upload-video-preview.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+const URL = process.env.REACT_APP_API_URL || "";
+console.log(URL);
 export default function UploadPage() {
   //STATE TO TRACK VALUES OF INPUT BOXES
   const [title, setTitle] = useState("");
   const [descript, setDescript] = useState("");
+  const [file, setFile] = useState(null);
+
+  //SET STATE TO SHOW PREVIEWED IMAGE AFTER INPUTTING
+  const [previewFile, setPreviewFile] = useState(null);
 
   //FUNCTION TO UPDATE STATES OF INPUT BOXES
   const handleChangeTitle = function (event) {
@@ -17,6 +22,14 @@ export default function UploadPage() {
 
   const handleChangeDescript = function (event) {
     setDescript(event.target.value);
+  };
+
+  const handleChangeFile = function (event) {
+    if (event.target.files && event.target.files[0]) {
+      setFile(event.target.files[0]);
+      const newUrl = window.URL.createObjectURL(event.target.files[0]);
+      setPreviewFile(newUrl);
+    }
   };
   //FUNCTION TESTING IF INPUT VALUES ARE VALID OR NOT
 
@@ -34,10 +47,19 @@ export default function UploadPage() {
     return false;
   };
 
+  const isImageValid = function () {
+    if (file) {
+      return true;
+    }
+    return false;
+  };
+
   const isFormValid = function () {
     if (!isTitleValid()) {
       return false;
     } else if (!isDescriptValid()) {
+      return false;
+    } else if (!isImageValid()) {
       return false;
     }
     return true;
@@ -45,7 +67,6 @@ export default function UploadPage() {
 
   //FUNCTION TO REDIRECT TO HOMEPAGE
   const navigate = useNavigate();
-
   const handleOnClickHome = function () {
     navigate("/");
   };
@@ -54,27 +75,60 @@ export default function UploadPage() {
   const handleOnClickPublish = function (event) {
     event.preventDefault();
     if (!isFormValid()) {
-      alert("Make sure to insert at least 10 letters for each input box!");
+      alert(
+        "Make sure to insert the image and at least 10 letters for each input box!"
+      );
     } else {
-      alert("Thank you for uploading");
-      navigate("/");
+      // const uploadVideo = {
+      //   title: title,
+      //   description: descript,
+      // };
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append("description", descript);
+      formData.append("title", title);
+
+      axios
+        .post(`${URL}/videos`, formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((response) => {
+          console.log(response);
+          alert("Thank you for uploading");
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 
   return (
     <div className="upload">
-      <PageHeader />
       {/* UPLOAD PAGE FORM  */}
       <form onSubmit={handleOnClickPublish} className="upload__form">
         <div className="upload__container">
           <h1 className="upload__heading">Upload Video</h1>
           <div className="upload__big-wrap">
             <div className="upload__thumbnail-infor">
-              <p className="upload__text">video thumbnail</p>
+              <label htmlFor="image" className="upload__text">
+                video thumbnail
+              </label>
               <img
-                className="upload__thumbnail"
-                src={thumbnail}
+                className={
+                  previewFile
+                    ? "upload__thumbnail"
+                    : "upload__thumbnail--display-none"
+                }
+                src={previewFile}
                 alt="video-thumbnail"
+              />
+              <input
+                className="upload__file-input"
+                type="file"
+                id="image"
+                name="image"
+                onChange={handleChangeFile}
               />
             </div>
             <div className="upload__wrapper">
@@ -117,6 +171,7 @@ export default function UploadPage() {
           <div className="upload__ending">
             {/* PUBLISH BUTTON */}
             <ButtonComponent
+              btnType="submit"
               btnClassName="btn btn--upload"
               btnContent="publish"
             />

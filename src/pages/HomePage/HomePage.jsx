@@ -3,11 +3,10 @@ import MainVideoInfor from "../../components/MainVideoInfor/MainVideoInfor";
 import VideoList from "../../components/VideoList/VideoList";
 import Conversation from "../../components/Conversation/Conversation";
 import MainVideo from "../../components/MainVideo/MainVideo";
-import PageHeader from "../../components/PageHeader/PageHeader";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+const URL = process.env.REACT_APP_API_URL || "";
 export default function HomePage() {
   //STATE FOR THE CURRENT VIDEO
   const [currentVideo, setCurrentVideo] = useState(null);
@@ -15,16 +14,10 @@ export default function HomePage() {
   //STATE FOR THE VIDEO LIST
   const [videoList, setVideoList] = useState([]);
 
-  //VARIABLE STRORES THE LINK TO VIDEO ENDPOINT
-  const webLink = "https://project-2-api.herokuapp.com/videos";
-
-  //VARIABLE STRORES THE API KEY
-  const apiKey = "?api_key=317d0969-049f-457c-b0f4-aa24cb948a29";
-
   //GET DATA ARRAY AN STORE IT IN THE VIDEOLIST STATE
   useEffect(() => {
     axios
-      .get(`${webLink}${apiKey}`)
+      .get(`${URL}/videos`)
       .then((response) => {
         const videoListArr = response.data;
         setVideoList(videoListArr);
@@ -47,7 +40,7 @@ export default function HomePage() {
 
     if (getId) {
       axios
-        .get(`${webLink}/${getId}${apiKey}`)
+        .get(`${URL}/videos/${getId}`)
         .then((response) => {
           setCurrentVideo(response.data);
         })
@@ -60,7 +53,7 @@ export default function HomePage() {
   //FUNCTION USED TO GET THE CURRENT VIDEO OBJECT AND UPDATE THE OBJECT TO THE CURRENTVIDEO STATE
   const getAndUpdateCurrentVideo = function () {
     axios
-      .get(`${webLink}/${currentVideo.id}${apiKey}`)
+      .get(`${URL}/videos/${currentVideo.id}`)
       .then((response) => {
         setCurrentVideo(response.data);
       })
@@ -78,9 +71,10 @@ export default function HomePage() {
         comment: comment,
       };
       axios
-        .post(`${webLink}/${currentVideo.id}/comments${apiKey}`, commentPost)
+        .post(`${URL}/videos/${currentVideo.id}/comments`, commentPost)
         .then((response) => {
-          getAndUpdateCurrentVideo(response);
+          console.log(response);
+          getAndUpdateCurrentVideo();
         })
         .catch((error) => {
           console.log(error);
@@ -93,18 +87,23 @@ export default function HomePage() {
   //DELETE FUNCTION
   const handleOnClickDelete = function (commentId) {
     axios
-      .delete(`${webLink}/${currentVideo.id}/comments/${commentId}${apiKey}`)
+      .delete(`${URL}/videos/${currentVideo.id}/comments/${commentId}`)
       .then((response) => {
-        getAndUpdateCurrentVideo(response);
+        getAndUpdateCurrentVideo();
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  //LIKE FUNCTION
+  const handleOnClickLike = function () {
+    axios.put(`${URL}/videos/${currentVideo.id}/likes`).then((response) => {
+      console.log(response);
+      getAndUpdateCurrentVideo();
+    });
+  };
   return (
     <div className="home-page">
-      {/* PAGE HEADER */}
-      <PageHeader />
       {/* MAIN VIDEO */}
       {currentVideo && <MainVideo videoPoster={currentVideo.image} />}
       <div className="home-page__container">
@@ -113,7 +112,12 @@ export default function HomePage() {
 
           <div className="home-page__box">
             {/* MAIN VIDEO INFORMATION */}
-            {currentVideo && <MainVideoInfor currentVideo={currentVideo} />}
+            {currentVideo && (
+              <MainVideoInfor
+                handleOnClickLike={handleOnClickLike}
+                currentVideo={currentVideo}
+              />
+            )}
             {/* CONVERSATION */}
             {currentVideo && (
               <Conversation

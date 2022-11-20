@@ -2,10 +2,13 @@ import "./FormComponent.scss";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import { useState } from "react";
 const FormComponent = function ({ handleOnSubmitComment }) {
+  //STATE FOR THE COMMENT
   const [comment, setComment] = useState("");
+  //FUNCTION TO OBSERVE THE COMMENT INPUT
   const handleChangeComment = function (event) {
     setComment(event.target.value);
   };
+  //FUNCTION TO CHECK FOR THE VALIDATION OF COMMENT
   const IsCommentValid = function () {
     if (comment && [...comment].length > 10) {
       return true;

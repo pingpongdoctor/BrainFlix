@@ -1,7 +1,7 @@
 //FUNCTION USED TO CONVERT TIMESTAMPS
 export const timeConvDetail = function (timestamp) {
-  const timeInfo = new Date(timestamp);
-  const timeInfoCurrent = new Date();
+  const timeInfo = new Date(timestamp).getTime();
+  const timeInfoCurrent = Date.now();
   const timeSince = timeInfoCurrent - timeInfo;
   const secondAgo = timeSince / 1000;
   const mitnuteAgo = secondAgo / 60;

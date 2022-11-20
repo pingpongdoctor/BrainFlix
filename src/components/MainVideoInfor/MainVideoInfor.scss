@@ -66,8 +66,19 @@
   &__likes {
     background-image: url("../../assets/Images/Icons/likes.svg");
     background-repeat: no-repeat;
-    background-position: 0% 60%;
+    background-position: 10% 60%;
     padding-left: 2rem;
+    border: none;
+    background-color: $Button-Color;
+    color: white;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    font-family: "Avenir Next";
+    border-radius: 4px;
+    padding-right: 1rem;
+    @include tablet {
+      font-size: 0.875rem;
+    }
     @include desktop {
       order: 2;
     }

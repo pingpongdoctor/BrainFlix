@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const PageHeader = () => {
   const navigate = useNavigate();
   const handleOnClickUpload = function () {
-    navigate("/Upload");
+    navigate("/upload");
   };
   return (
     <header className="header">

@@ -1,7 +1,7 @@
 import "./MainVideoInfor.scss";
 import { timeConvDetail } from "../../Utils/utils";
 
-const MainVideoInfor = function ({ currentVideo }) {
+const MainVideoInfor = function ({ currentVideo, handleOnClickLike }) {
   return (
     <section className="main-infor">
       <div className="main-infor__container">
@@ -12,7 +12,9 @@ const MainVideoInfor = function ({ currentVideo }) {
           <p className="main-infor__time">
             {timeConvDetail(currentVideo.timestamp)}
           </p>
-          <p className="main-infor__likes">{currentVideo.likes}</p>
+          <button onClick={handleOnClickLike} className="main-infor__likes">
+            {currentVideo.likes}
+          </button>
         </div>
         <p className="main-infor__text">{currentVideo.description}</p>
       </div>

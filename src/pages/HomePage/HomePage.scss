@@ -23,6 +23,7 @@
     @include desktop {
       border-right: 1px solid $Border-Color;
       color: black;
+      width: 768px;
     }
   }
 }
