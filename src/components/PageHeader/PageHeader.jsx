@@ -13,6 +13,7 @@ const PageHeader = () => {
   return (
     <header className="header">
       <div className="header__container">
+        {/* LOGO */}
         <Logo logoClassName="logo" logoSrc={logoPic} logoAlt="logo" />
         <div className="header__wrap">
           <textarea
@@ -21,17 +22,20 @@ const PageHeader = () => {
             name="input"
             wrap="hard"
           ></textarea>
+          {/* AVATAR */}
           <Avatar
             avatarClassName="avatar avatar--mobile"
             avatarSrc={mohanPic}
             avatarAlt="avatar"
           />
         </div>
+        {/* SUBMIT BUTTON */}
         <ButtonComponent
           clickHandler={handleOnClickUpload}
           btnContent="upload"
           btnClassName="btn btn--header"
         />
+        {/* AVATAR */}
         <Avatar
           avatarClassName="avatar avatar--tablet"
           avatarSrc={mohanPic}

@@ -11,17 +11,21 @@ const Conversation = function ({
   return (
     <div className="conversation">
       <div className=" conversation__container">
+        {/* COMMENT QUANTITY */}
         <p className="conversation__comment-num">
           {commentArr.length} Comments
         </p>
         <div className="conversation__wrap">
+          {/* AVARTAR */}
           <Avatar
             avatarClassName="avatar avatar--form"
             avatarSrc={mohanPic}
             avatarAlt="avatar"
           />
+          {/* COMMENT SUBMITTING FORM */}
           <FormComponent handleOnSubmitComment={handleOnSubmitComment} />
         </div>
+        {/* COMMENT LIST */}
         <CommentList
           handleOnClickDelete={handleOnClickDelete}
           commentArr={commentArr}

@@ -1,4 +1,5 @@
 import "./ButtonComponent.scss";
+
 const ButtonComponent = ({
   btnClassName,
   btnContent,

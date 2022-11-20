@@ -27,7 +27,7 @@ export default function HomePage() {
       });
   }, []);
 
-  //USE USEPARAMS TO GET ID
+  //USE USEPARAMS TO GET THE VIDEO ID
   const { id } = useParams();
 
   //USE ID TO GET DATA OF THE VIDEO OBJECT AND STORE IT IN THE CURRENTVIDEO STATE
@@ -73,7 +73,6 @@ export default function HomePage() {
       axios
         .post(`${URL}/videos/${currentVideo.id}/comments`, commentPost)
         .then((response) => {
-          console.log(response);
           getAndUpdateCurrentVideo();
         })
         .catch((error) => {
@@ -98,7 +97,6 @@ export default function HomePage() {
   //LIKE FUNCTION
   const handleOnClickLike = function () {
     axios.put(`${URL}/videos/${currentVideo.id}/likes`).then((response) => {
-      console.log(response);
       getAndUpdateCurrentVideo();
     });
   };

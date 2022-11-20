@@ -12,6 +12,7 @@ const MainVideoInfor = function ({ currentVideo, handleOnClickLike }) {
           <p className="main-infor__time">
             {timeConvDetail(currentVideo.timestamp)}
           </p>
+          {/* LIKE BUTTON FOR THE MAIN VIDEO  */}
           <button onClick={handleOnClickLike} className="main-infor__likes">
             {currentVideo.likes}
           </button>

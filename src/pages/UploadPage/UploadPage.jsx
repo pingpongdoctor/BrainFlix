@@ -1,18 +1,17 @@
 import "./UploadPage.scss";
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
-// import thumbnail from "../../assets/Images/Upload-video-preview.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const URL = process.env.REACT_APP_API_URL || "";
-console.log(URL);
+
 export default function UploadPage() {
-  //STATE TO TRACK VALUES OF INPUT BOXES
+  //STATE TO STORE THE INPUT VALUES OF INPUT BOXES
   const [title, setTitle] = useState("");
   const [descript, setDescript] = useState("");
   const [file, setFile] = useState(null);
 
-  //SET STATE TO SHOW PREVIEWED IMAGE AFTER INPUTTING
+  //SET STATE TO SHOW PREVIEWED IMAGE AFTER CHOOSING AN UPLOADED FILE
   const [previewFile, setPreviewFile] = useState(null);
 
   //FUNCTION TO UPDATE STATES OF INPUT BOXES
@@ -32,7 +31,6 @@ export default function UploadPage() {
     }
   };
   //FUNCTION TESTING IF INPUT VALUES ARE VALID OR NOT
-
   const isTitleValid = function () {
     if (title && [...title].length > 10) {
       return true;
@@ -47,7 +45,7 @@ export default function UploadPage() {
     return false;
   };
 
-  const isImageValid = function () {
+  const isFileValid = function () {
     if (file) {
       return true;
     }
@@ -59,7 +57,7 @@ export default function UploadPage() {
       return false;
     } else if (!isDescriptValid()) {
       return false;
-    } else if (!isImageValid()) {
+    } else if (!isFileValid()) {
       return false;
     }
     return true;
@@ -76,24 +74,18 @@ export default function UploadPage() {
     event.preventDefault();
     if (!isFormValid()) {
       alert(
-        "Make sure to insert the image and at least 10 letters for each input box!"
+        "Make sure to insert the uploaded file and at least 10 letters for each input box!"
       );
     } else {
-      // const uploadVideo = {
-      //   title: title,
-      //   description: descript,
-      // };
       const formData = new FormData();
       formData.append("image", file);
       formData.append("description", descript);
       formData.append("title", title);
-
       axios
         .post(`${URL}/videos`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         })
         .then((response) => {
-          console.log(response);
           alert("Thank you for uploading");
           navigate("/");
         })
@@ -111,7 +103,7 @@ export default function UploadPage() {
           <h1 className="upload__heading">Upload Video</h1>
           <div className="upload__big-wrap">
             <div className="upload__thumbnail-infor">
-              <label htmlFor="image" className="upload__text">
+              <label htmlFor="file" className="upload__text">
                 video thumbnail
               </label>
               <img
@@ -126,8 +118,8 @@ export default function UploadPage() {
               <input
                 className="upload__file-input"
                 type="file"
-                id="image"
-                name="image"
+                id="file"
+                name="file"
                 onChange={handleChangeFile}
               />
             </div>

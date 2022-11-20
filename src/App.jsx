@@ -9,6 +9,7 @@ function App() {
       <div className="App">
         {/* PAGE HEADER */}
         <PageHeader />
+        {/* APPLY ROUTES */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" />} />
