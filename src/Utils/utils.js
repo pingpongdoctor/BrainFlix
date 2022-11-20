@@ -9,6 +9,7 @@ export const timeConvDetail = function (timestamp) {
   const dayAgo = hourAgo / 24;
   const monthAgo = dayAgo / 30;
   const yearAgo = dayAgo / 365;
+
   if (mitnuteAgo < 1) {
     const timeDisplayDetail = `Posted ${Math.round(secondAgo)} seconds ago`;
     return timeDisplayDetail;

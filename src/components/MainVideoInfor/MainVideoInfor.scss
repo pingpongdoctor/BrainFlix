@@ -76,6 +76,7 @@
     font-family: "Avenir Next";
     border-radius: 4px;
     padding-right: 1rem;
+    min-width: 70px;
     @include tablet {
       font-size: 0.875rem;
     }
