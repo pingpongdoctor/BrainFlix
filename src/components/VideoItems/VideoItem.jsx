@@ -6,7 +6,7 @@ const VideoItem = function ({ id, url, title, channel }) {
   const onClickScrollToTop = function () {
     window.scrollTo(0, 0);
   };
-  console.log(url);
+
   return (
     <Link onClick={onClickScrollToTop} to={`/videos/${id}`}>
       <li className="video-list__item">
