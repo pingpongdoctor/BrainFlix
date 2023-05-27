@@ -1,5 +1,4 @@
 import "./MainVideo.scss";
-const URL = process.env.REACT_APP_API_URL || "";
 
 const MainVideo = function ({ videoPoster }) {
   return (

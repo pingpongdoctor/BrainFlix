@@ -15,7 +15,7 @@ const VideoList = function ({ videoList, currentVideo }) {
               <VideoItem
                 key={video.id}
                 id={video.id}
-                url={video.image}
+                imageUrl={video.image}
                 title={video.title}
                 channel={video.channel}
               />
