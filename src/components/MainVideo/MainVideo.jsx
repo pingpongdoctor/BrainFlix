@@ -7,7 +7,7 @@ const MainVideo = function ({ videoPoster }) {
       <div className="main-video__container">
         <video
           className="main-video__clip"
-          poster={URL + videoPoster}
+          poster={videoPoster}
           controls
         ></video>
       </div>
