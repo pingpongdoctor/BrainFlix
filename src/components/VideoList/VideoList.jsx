@@ -2,8 +2,6 @@ import "./VideoList.scss";
 import VideoItem from "../VideoItems/VideoItem";
 
 const VideoList = function ({ videoList, currentVideo }) {
-  console.log(videoList);
-
   return (
     <div className="video-list">
       <div className="video-list__container">
